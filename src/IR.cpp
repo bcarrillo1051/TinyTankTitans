@@ -27,25 +27,47 @@ void task_transmitter(void* p_param) {
     }
 }
 
-
+/**
+ * @brief Task for receiving and processing IR (infrared) signals.
+ * 
+ * This function initializes an IR receiver and continuously checks for decoded IR signals. 
+ * Upon receiving a signal, it verifies the signal value using a user-defined function 
+ * and resumes the receiver for further signal detection.
+ * 
+ * @param p_param Pointer to the parameter passed to the task (unused in this implementation).
+ */
 void task_receiver(void* p_param) {
-        // Create an instance of the IR receiver with specified parameters
-    // IR_RECEIVER_PIN: Pin where the IR receiver is connected
-    // kCaptureBufferSize: Size of the capture buffer for decoding IR signals
-    // kTimeout: Timeout for waiting to receive a signal
-    // false: Do not use a repeat flag
-    IRrecv irReceiver(IR_RECEIVER_PIN,kCaptureBufferSize,kTimeout,false);
+    // Initialize the IR receiver object with specified parameters:
+    // - IR_RECEIVER_PIN: Pin where the IR receiver module is connected.
+    // - kCaptureBufferSize: Size of the buffer for capturing IR signals.
+    // - kTimeout: Duration to wait for an IR signal before timing out.
+    // - false: Disable the repeat signal detection flag.
+    IRrecv irReceiver(IR_RECEIVER_PIN, kCaptureBufferSize, kTimeout, false);
+    
+    // Create a decode_results object to hold the decoded IR signal data.
     decode_results irResults;
+    
+    // Initialize the IR transmitter object on the specified pin.
     IRsend irTransmitter(IR_TRANSMITTER_PIN);
+    
+    // Enable the IR receiver module to start capturing signals.
     irReceiver.enableIRIn();
 
-  while(true) {
-    if (irReceiver.decode(&irResults)) {
-        verify_signal(irResults.value);
-        irReceiver.resume();
+    // Start an infinite loop to continuously monitor IR signals.
+    while (true) {
+        // Check if an IR signal has been successfully decoded.
+        if (irReceiver.decode(&irResults)) {
+            // Process the decoded signal by passing its value to the verify_signal function.
+            verify_signal(irResults.value);
+            
+            // Prepare the receiver to resume capturing the next signal.
+            irReceiver.resume();
+        }
+        
+        // Add a delay of 200 milliseconds before the next iteration to avoid
+        // rapid polling and conserve CPU resources.
+        vTaskDelay(200);
     }
-    vTaskDelay(200);
-  }
 }
 
 void verify_signal(uint32_t signal_Data) {

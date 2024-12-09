@@ -1,3 +1,14 @@
+/**
+ * @file SPP_Bluetooth.cpp
+ * @author Bryan Carrillo, Edgar Mora, Kerr Allen
+ * @brief Makes use of the bluetooth capability for ESP32 (bluetooth server) 
+ *        and processes received data from phones (bluetooth client) 
+ * @version 0.1
+ * @date 2024-12-09
+ * 
+ * @copyright Copyright (c) 2024
+ * 
+ */
 #include <Arduino.h> // Include the Arduino library for basic functionalities
 #include "BluetoothSerial.h" // Include the BluetoothSerial library for Bluetooth communication
 

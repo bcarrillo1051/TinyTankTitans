@@ -10,7 +10,12 @@
  */
 #include "motors.h"
 #include "IR.h"
+#include "main.h"
 
+// Share variable, Determines if Square Wave will be generated or not
+Share<uint16_t> movement ("Tank 2D Movement");
+Share<bool> fire ("Tank Firing");
+Share<uint16_t> angles ("Tank Turret and Barrel Movement");
 
 void setup() {
   

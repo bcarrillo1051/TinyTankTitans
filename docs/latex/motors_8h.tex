@@ -1,0 +1,130 @@
+\doxysection{C\+:/\+Users/carri/\+One\+Drive/\+Desktop/\+ME 507/\+Tiny\+Tank\+Titans/src/motors.h File Reference}
+\hypertarget{motors_8h}{}\label{motors_8h}\index{C:/Users/carri/OneDrive/Desktop/ME 507/TinyTankTitans/src/motors.h@{C:/Users/carri/OneDrive/Desktop/ME 507/TinyTankTitans/src/motors.h}}
+
+
+File for DC and Servo Motors definitions used for Tank project.  
+
+
+{\ttfamily \#include $<$Arduino.\+h$>$}\newline
+{\ttfamily \#include $<$ESP32\+\_\+\+Servo.\+h$>$}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{motors_8h_a3e4d4fc6ada25dbf92510809adde0263}\label{motors_8h_a3e4d4fc6ada25dbf92510809adde0263} 
+\#define {\bfseries ELEVATION}~25
+\item 
+\Hypertarget{motors_8h_a101a400582c692f5f5014eec55a49a30}\label{motors_8h_a101a400582c692f5f5014eec55a49a30} 
+\#define {\bfseries AZIMUTH}~15
+\item 
+\Hypertarget{motors_8h_aa118db89564189dcf8c48ecbd79937d8}\label{motors_8h_aa118db89564189dcf8c48ecbd79937d8} 
+\#define {\bfseries IN1}~12
+\item 
+\Hypertarget{motors_8h_ac2c663eb7de5a963911af77b65451fb6}\label{motors_8h_ac2c663eb7de5a963911af77b65451fb6} 
+\#define {\bfseries IN2}~14
+\item 
+\Hypertarget{motors_8h_ae24e8a55f5b9660a35dc5cf8a5e8ba4a}\label{motors_8h_ae24e8a55f5b9660a35dc5cf8a5e8ba4a} 
+\#define {\bfseries IN3}~16
+\item 
+\Hypertarget{motors_8h_a38caa48612155e36696b60d2aabc25ff}\label{motors_8h_a38caa48612155e36696b60d2aabc25ff} 
+\#define {\bfseries IN4}~4
+\item 
+\Hypertarget{motors_8h_a484e9f2439c211a431b9fba54514557e}\label{motors_8h_a484e9f2439c211a431b9fba54514557e} 
+\#define {\bfseries PWM\+\_\+\+MOVE}~70
+\item 
+\Hypertarget{motors_8h_a930be8e5c5f9e1b86e0d14d174b3586f}\label{motors_8h_a930be8e5c5f9e1b86e0d14d174b3586f} 
+\#define {\bfseries PWM\+\_\+\+STOP}~0
+\item 
+\Hypertarget{motors_8h_aee52a5c503c3859a83536b69d824e971}\label{motors_8h_aee52a5c503c3859a83536b69d824e971} 
+\#define {\bfseries DELAY\+\_\+M}~2500
+\item 
+\Hypertarget{motors_8h_a77a2f86c61e7b77697571c7d13609465}\label{motors_8h_a77a2f86c61e7b77697571c7d13609465} 
+\#define {\bfseries DELAY\+\_\+S}~100
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{motors_8h_a477695fc20493871eb5faa073e77443e}\label{motors_8h_a477695fc20493871eb5faa073e77443e} 
+enum {\bfseries state\+\_\+type} \{ \newline
+{\bfseries ST\+\_\+\+IDLE}
+, {\bfseries ST\+\_\+\+FORWARD}
+, {\bfseries ST\+\_\+\+BACKWARD}
+, {\bfseries ST\+\_\+\+RIGHT}
+, \newline
+{\bfseries ST\+\_\+\+LEFT}
+, {\bfseries ST\+\_\+\+UP}
+, {\bfseries ST\+\_\+\+DOWN}
+, {\bfseries ST\+\_\+\+CW}
+, \newline
+{\bfseries ST\+\_\+\+CCW}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{motors_8h_a925ec0c1b0a736e565401339eee1c05a}{task\+\_\+movement}} (void \texorpdfstring{$\ast$}{*}p\+\_\+param)
+\begin{DoxyCompactList}\small\item\em Task outputs a 250 Hz Square\+Wave on Pin 12. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{motors_8h_a66a6fc13a541e01064c255165b5a1f9b}{task\+\_\+barrel}} (void \texorpdfstring{$\ast$}{*}p\+\_\+param)
+\begin{DoxyCompactList}\small\item\em Task outputs a 250 Hz Square\+Wave on Pin 12. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{motors_8h_a7f712f3ef906ba6b3b485e163c51e256}{task\+\_\+turret}} (void \texorpdfstring{$\ast$}{*}p\+\_\+param)
+\begin{DoxyCompactList}\small\item\em Task outputs a 250 Hz Square\+Wave on Pin 12. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+File for DC and Servo Motors definitions used for Tank project. 
+
+Copyright (C) 2024 by Tiny Tank Titans
+
+\begin{DoxyAuthor}{Authors}
+Edgar Mora, Bryan Carrillo, Kerr Allan 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+December/10/2024 
+\end{DoxyDate}
+This file is the main 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{motors_8h_a66a6fc13a541e01064c255165b5a1f9b}\index{motors.h@{motors.h}!task\_barrel@{task\_barrel}}
+\index{task\_barrel@{task\_barrel}!motors.h@{motors.h}}
+\doxysubsubsection{\texorpdfstring{task\_barrel()}{task\_barrel()}}
+{\footnotesize\ttfamily \label{motors_8h_a66a6fc13a541e01064c255165b5a1f9b} 
+void task\+\_\+barrel (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{p\+\_\+param}{}\end{DoxyParamCaption})}
+
+
+
+Task outputs a 250 Hz Square\+Wave on Pin 12. 
+
+This task outputs a 250 Hz, 50\% Duty Cycle on GPIO 12 of ESP32 Microcontroller. Square wave will be generated iff the inter-\/task shared variable "{}hide"{} is False; otherwise, if hide is true, the square wave won’t be shown, and the pin will sit at logic zero. 
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+params} & A pointer to parameters passed to this task. This pointer is ignored; it should be set to {\ttfamily NULL} in the call to {\ttfamily x\+Task\+Create()} which starts this task \\
+\hline
+\end{DoxyParams}
+\Hypertarget{motors_8h_a925ec0c1b0a736e565401339eee1c05a}\index{motors.h@{motors.h}!task\_movement@{task\_movement}}
+\index{task\_movement@{task\_movement}!motors.h@{motors.h}}
+\doxysubsubsection{\texorpdfstring{task\_movement()}{task\_movement()}}
+{\footnotesize\ttfamily \label{motors_8h_a925ec0c1b0a736e565401339eee1c05a} 
+void task\+\_\+movement (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{p\+\_\+param}{}\end{DoxyParamCaption})}
+
+
+
+Task outputs a 250 Hz Square\+Wave on Pin 12. 
+
+This task outputs a 250 Hz, 50\% Duty Cycle on GPIO 12 of ESP32 Microcontroller. Square wave will be generated iff the inter-\/task shared variable "{}hide"{} is False; otherwise, if hide is true, the square wave won’t be shown, and the pin will sit at logic zero. 
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+params} & A pointer to parameters passed to this task. This pointer is ignored; it should be set to {\ttfamily NULL} in the call to {\ttfamily x\+Task\+Create()} which starts this task \\
+\hline
+\end{DoxyParams}
+\Hypertarget{motors_8h_a7f712f3ef906ba6b3b485e163c51e256}\index{motors.h@{motors.h}!task\_turret@{task\_turret}}
+\index{task\_turret@{task\_turret}!motors.h@{motors.h}}
+\doxysubsubsection{\texorpdfstring{task\_turret()}{task\_turret()}}
+{\footnotesize\ttfamily \label{motors_8h_a7f712f3ef906ba6b3b485e163c51e256} 
+void task\+\_\+turret (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{p\+\_\+param}{}\end{DoxyParamCaption})}
+
+
+
+Task outputs a 250 Hz Square\+Wave on Pin 12. 
+
+This task outputs a 250 Hz, 50\% Duty Cycle on GPIO 12 of ESP32 Microcontroller. Square wave will be generated iff the inter-\/task shared variable "{}hide"{} is False; otherwise, if hide is true, the square wave won’t be shown, and the pin will sit at logic zero. 
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+params} & A pointer to parameters passed to this task. This pointer is ignored; it should be set to {\ttfamily NULL} in the call to {\ttfamily x\+Task\+Create()} which starts this task \\
+\hline
+\end{DoxyParams}
