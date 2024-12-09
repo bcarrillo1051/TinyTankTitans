@@ -1,0 +1,78 @@
+\doxysection{C\+:/\+Users/carri/\+One\+Drive/\+Desktop/\+ME 507/\+Tiny\+Tank\+Titans/src/motors.cpp File Reference}
+\hypertarget{motors_8cpp}{}\label{motors_8cpp}\index{C:/Users/carri/OneDrive/Desktop/ME 507/TinyTankTitans/src/motors.cpp@{C:/Users/carri/OneDrive/Desktop/ME 507/TinyTankTitans/src/motors.cpp}}
+
+
+File for DC and Servo Motors functions used for Tank project.  
+
+
+{\ttfamily \#include "{}motors.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{motors_8cpp_a925ec0c1b0a736e565401339eee1c05a}{task\+\_\+movement}} (void \texorpdfstring{$\ast$}{*}p\+\_\+param)
+\begin{DoxyCompactList}\small\item\em Task outputs a 250 Hz Square\+Wave on Pin 12. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{motors_8cpp_a66a6fc13a541e01064c255165b5a1f9b}{task\+\_\+barrel}} (void \texorpdfstring{$\ast$}{*}p\+\_\+param)
+\begin{DoxyCompactList}\small\item\em Task outputs a 250 Hz Square\+Wave on Pin 12. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{motors_8cpp_a7f712f3ef906ba6b3b485e163c51e256}{task\+\_\+turret}} (void \texorpdfstring{$\ast$}{*}p\+\_\+param)
+\begin{DoxyCompactList}\small\item\em Task outputs a 250 Hz Square\+Wave on Pin 12. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+File for DC and Servo Motors functions used for Tank project. 
+
+Copyright (C) 2024 by Tiny Tank Titans
+
+\begin{DoxyAuthor}{Authors}
+Edgar Mora, Bryan Carrillo, Kerr Allan 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+December/10/2024  
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{motors_8cpp_a66a6fc13a541e01064c255165b5a1f9b}\index{motors.cpp@{motors.cpp}!task\_barrel@{task\_barrel}}
+\index{task\_barrel@{task\_barrel}!motors.cpp@{motors.cpp}}
+\doxysubsubsection{\texorpdfstring{task\_barrel()}{task\_barrel()}}
+{\footnotesize\ttfamily \label{motors_8cpp_a66a6fc13a541e01064c255165b5a1f9b} 
+void task\+\_\+barrel (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{p\+\_\+param}{}\end{DoxyParamCaption})}
+
+
+
+Task outputs a 250 Hz Square\+Wave on Pin 12. 
+
+This task outputs a 250 Hz, 50\% Duty Cycle on GPIO 12 of ESP32 Microcontroller. Square wave will be generated iff the inter-\/task shared variable "{}hide"{} is False; otherwise, if hide is true, the square wave won’t be shown, and the pin will sit at logic zero. 
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+params} & A pointer to parameters passed to this task. This pointer is ignored; it should be set to {\ttfamily NULL} in the call to {\ttfamily x\+Task\+Create()} which starts this task \\
+\hline
+\end{DoxyParams}
+\Hypertarget{motors_8cpp_a925ec0c1b0a736e565401339eee1c05a}\index{motors.cpp@{motors.cpp}!task\_movement@{task\_movement}}
+\index{task\_movement@{task\_movement}!motors.cpp@{motors.cpp}}
+\doxysubsubsection{\texorpdfstring{task\_movement()}{task\_movement()}}
+{\footnotesize\ttfamily \label{motors_8cpp_a925ec0c1b0a736e565401339eee1c05a} 
+void task\+\_\+movement (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{p\+\_\+param}{}\end{DoxyParamCaption})}
+
+
+
+Task outputs a 250 Hz Square\+Wave on Pin 12. 
+
+This task outputs a 250 Hz, 50\% Duty Cycle on GPIO 12 of ESP32 Microcontroller. Square wave will be generated iff the inter-\/task shared variable "{}hide"{} is False; otherwise, if hide is true, the square wave won’t be shown, and the pin will sit at logic zero. 
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+params} & A pointer to parameters passed to this task. This pointer is ignored; it should be set to {\ttfamily NULL} in the call to {\ttfamily x\+Task\+Create()} which starts this task \\
+\hline
+\end{DoxyParams}
+\Hypertarget{motors_8cpp_a7f712f3ef906ba6b3b485e163c51e256}\index{motors.cpp@{motors.cpp}!task\_turret@{task\_turret}}
+\index{task\_turret@{task\_turret}!motors.cpp@{motors.cpp}}
+\doxysubsubsection{\texorpdfstring{task\_turret()}{task\_turret()}}
+{\footnotesize\ttfamily \label{motors_8cpp_a7f712f3ef906ba6b3b485e163c51e256} 
+void task\+\_\+turret (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{p\+\_\+param}{}\end{DoxyParamCaption})}
+
+
+
+Task outputs a 250 Hz Square\+Wave on Pin 12. 
+
+This task outputs a 250 Hz, 50\% Duty Cycle on GPIO 12 of ESP32 Microcontroller. Square wave will be generated iff the inter-\/task shared variable "{}hide"{} is False; otherwise, if hide is true, the square wave won’t be shown, and the pin will sit at logic zero. 
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+params} & A pointer to parameters passed to this task. This pointer is ignored; it should be set to {\ttfamily NULL} in the call to {\ttfamily x\+Task\+Create()} which starts this task \\
+\hline
+\end{DoxyParams}

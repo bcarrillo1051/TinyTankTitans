@@ -1,0 +1,32 @@
+\doxysection{motors.\+h}
+\hypertarget{motors_8h_source}{}\label{motors_8h_source}\index{C:/Users/carri/OneDrive/Desktop/ME 507/TinyTankTitans/src/motors.h@{C:/Users/carri/OneDrive/Desktop/ME 507/TinyTankTitans/src/motors.h}}
+\mbox{\hyperlink{motors_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00011\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/INCLUDE-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <Arduino.h>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <ESP32\_Servo.h>}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/CONSTANT\ DEFINITIONS-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#define\ ELEVATION\ \ \ 25}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#define\ AZIMUTH\ \ \ \ \ 15}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#define\ IN1\ \ \ \ \ \ \ \ \ 12}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#define\ IN2\ \ \ \ \ \ \ \ \ 14}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ IN3\ \ \ \ \ \ \ \ \ 16}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ IN4\ \ \ \ \ \ \ \ \ \ 4}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ PWM\_MOVE\ \ \ \ 70}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ PWM\_STOP\ \ \ \ \ 0}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#define\ DELAY\_M\ \ \ 2500}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#define\ DELAY\_S\ \ \ \ 100}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{comment}{//\ Defining\ a\ new\ type\ called\ state\_type.}}
+\DoxyCodeLine{00028\ \textcolor{comment}{//\ Will\ be\ used\ to\ define\ the\ states\ for\ FSM}}
+\DoxyCodeLine{00029\ \textcolor{keyword}{enum}\ state\_type\ \{ST\_IDLE,\ ST\_FORWARD,\ ST\_BACKWARD,\ ST\_RIGHT,\ ST\_LEFT,}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ST\_UP,\ ST\_DOWN,\ ST\_CW,\ ST\_CCW\};}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/FUNCTION\ DECLARATIONS-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{00033\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{motors_8h_a925ec0c1b0a736e565401339eee1c05a}{task\_movement}}(\textcolor{keywordtype}{void}*\ p\_param);}
+\DoxyCodeLine{00034\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{motors_8h_a66a6fc13a541e01064c255165b5a1f9b}{task\_barrel}}(\textcolor{keywordtype}{void}*\ p\_param);}
+\DoxyCodeLine{00035\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{motors_8h_a7f712f3ef906ba6b3b485e163c51e256}{task\_turret}}(\textcolor{keywordtype}{void}*\ p\_param);}
+
+\end{DoxyCode}

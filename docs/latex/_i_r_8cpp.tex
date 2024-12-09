@@ -1,0 +1,52 @@
+\doxysection{C\+:/\+Users/carri/\+One\+Drive/\+Desktop/\+ME 507/\+Tiny\+Tank\+Titans/src/\+IR.cpp File Reference}
+\hypertarget{_i_r_8cpp}{}\label{_i_r_8cpp}\index{C:/Users/carri/OneDrive/Desktop/ME 507/TinyTankTitans/src/IR.cpp@{C:/Users/carri/OneDrive/Desktop/ME 507/TinyTankTitans/src/IR.cpp}}
+
+
+File for IR Receiver and Transmitter functions used for Tank project.  
+
+
+{\ttfamily \#include "{}IR.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{_i_r_8cpp_adaae0471b21b3b90ea804b0f2f0f59be}\label{_i_r_8cpp_adaae0471b21b3b90ea804b0f2f0f59be} 
+void {\bfseries task\+\_\+transmitter} (void \texorpdfstring{$\ast$}{*}p\+\_\+param)
+\item 
+void \mbox{\hyperlink{_i_r_8cpp_adb4f977bb83c3513c9a3115aa4d3f2e5}{task\+\_\+receiver}} (void \texorpdfstring{$\ast$}{*}p\+\_\+param)
+\begin{DoxyCompactList}\small\item\em Task for receiving and processing IR (infrared) signals. \end{DoxyCompactList}\item 
+\Hypertarget{_i_r_8cpp_a817d4fd18b716179e552f7d80fb089b1}\label{_i_r_8cpp_a817d4fd18b716179e552f7d80fb089b1} 
+void {\bfseries verify\+\_\+signal} (uint32\+\_\+t signal\+\_\+\+Data)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+File for IR Receiver and Transmitter functions used for Tank project. 
+
+Copyright (C) 2024 by Tiny Tank Titans
+
+\begin{DoxyAuthor}{Authors}
+Edgar Mora, Bryan Carrillo, Kerr Allan 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+December/10/2024 
+\end{DoxyDate}
+This file is the main 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_i_r_8cpp_adb4f977bb83c3513c9a3115aa4d3f2e5}\index{IR.cpp@{IR.cpp}!task\_receiver@{task\_receiver}}
+\index{task\_receiver@{task\_receiver}!IR.cpp@{IR.cpp}}
+\doxysubsubsection{\texorpdfstring{task\_receiver()}{task\_receiver()}}
+{\footnotesize\ttfamily \label{_i_r_8cpp_adb4f977bb83c3513c9a3115aa4d3f2e5} 
+void task\+\_\+receiver (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{p\+\_\+param}{}\end{DoxyParamCaption})}
+
+
+
+Task for receiving and processing IR (infrared) signals. 
+
+This function initializes an IR receiver and continuously checks for decoded IR signals. Upon receiving a signal, it verifies the signal value using a user-\/defined function and resumes the receiver for further signal detection.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+param} & Pointer to the parameter passed to the task (unused in this implementation). \\
+\hline
+\end{DoxyParams}
