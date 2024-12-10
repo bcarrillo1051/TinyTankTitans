@@ -53,7 +53,7 @@ void setup() {
   xTaskCreate (task_barrel, "Tank Barrel Motion", 2048, NULL, 2, NULL);
   xTaskCreate (task_movement, "Tank 2D Motion", 2048, NULL, 3, NULL);
   xTaskCreate (task_receiver, "Tank IR Receiver", 2048, NULL, 4, NULL);
-  xTaskCreate (task_transmitter, "Tank IR Trasnmitter", 2048, NULL, 5, NULL); 
+  xTaskCreate (task_transmitter, "Tank IR Transmitter", 2048, NULL, 5, NULL); 
   xTaskCreate (task_bluetooth, "Bluetooth Communication", 2048, NULL, 6, NULL);
 }
 
