@@ -11,6 +11,7 @@
 /*-----------------INCLUDE---------------------------------------- */
 #include <Arduino.h>
 #include <ESP32_Servo.h>
+#include <taskshare.h>
 
 /*-----------------CONSTANT DEFINITIONS--------------------------- */
 #define ELEVATION   25
@@ -21,7 +22,7 @@
 #define IN4          4
 #define PWM_MOVE    70
 #define PWM_STOP     0
-#define DELAY_M   2500
+#define DELAY_M    100
 #define DELAY_S    100
 
 // Defining a new type called state_type.
@@ -33,3 +34,4 @@ enum state_type {ST_IDLE, ST_FORWARD, ST_BACKWARD, ST_RIGHT, ST_LEFT,
 void task_movement(void* p_param);
 void task_barrel(void* p_param);
 void task_turret(void* p_param);
+state_type state_check(void);

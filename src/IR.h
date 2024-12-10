@@ -10,6 +10,7 @@
  */
 /*--------------------------------INCLUDE----------------------------------- */
 #include <Arduino.h>
+#include <taskshare.h>
 #include <IRremoteESP8266.h>
 #include <IRsend.h>
 #include <IRrecv.h>

@@ -5,86 +5,81 @@
  * @date December/10/2024
  * @brief File for DC and Servo Motors functions used for Tank project
  * 
- * @details
+ * @details This file contains all the fuctions related to the motors used in the tank project.
+ *          Motors for this project are used to move the tank, its barrel, and its turret.
  * 
  */
 #include "motors.h"
+#include "main.h"
 
 
-/** @brief   Task outputs a 250 Hz SquareWave on Pin 12.
- *  @details This task outputs a 250 Hz, 50% Duty Cycle on GPIO 12 of
- *           ESP32 Microcontroller. Square wave will be generated iff the inter-task shared variable
- *           "hide" is False; otherwise, if hide is true, the square wave won’t be shown,
- *           and the pin will sit at logic zero.
+/** @brief   Task controls 2D motion of the Tank
+ *  @details This task runs a FSM which controls the 2D motion of the tank.
+ *           There are 5 possible states: Idle, Forward, Backwards, Left, Right.
+ *           The state depends on the data sent via bluetooth.
+ * 
  *  @param   p_params A pointer to parameters passed to this task. This 
  *           pointer is ignored; it should be set to @c NULL in the 
  *           call to @c xTaskCreate() which starts this task
  */
 void task_movement(void* p_param){
-
-  // Defining Starting State of FSM
+  // Defining State variable of movement FSM
   state_type motor = ST_IDLE;
 
   while(true) { // Infinite Loop
 
     switch(motor){ // Switch-Case for states
+      // IDLE State
       case ST_IDLE:
-      analogWrite(IN2,PWM_STOP);
-      analogWrite(IN4,PWM_STOP);
-      analogWrite(IN1,PWM_STOP);
-      analogWrite(IN3,PWM_STOP);
-      delay(1000);
-      motor = ST_FORWARD;
+      analogWrite(IN2,PWM_STOP); // Motor off
+      analogWrite(IN4,PWM_STOP); // Motor off
+      analogWrite(IN1,PWM_STOP); // Motor off
+      analogWrite(IN3,PWM_STOP); // Motor off
+      motor = state_check();     // Check next state of FSM
       break;
-
+     // FORWARD State
       case ST_FORWARD:
-      analogWrite(IN1,PWM_MOVE);
-      analogWrite(IN3,PWM_MOVE);
-      analogWrite(IN2,PWM_STOP);
-      analogWrite(IN4,PWM_STOP);
-      delay(1000);
-      motor = ST_BACKWARD;
+      analogWrite(IN1,PWM_MOVE); // Motor on
+      analogWrite(IN3,PWM_MOVE); // Motor on
+      analogWrite(IN2,PWM_STOP); // Motor off
+      analogWrite(IN4,PWM_STOP); // Motor off
+      motor = state_check();     // Check next state of FSM
       break;
-
+     // BACKWARD State
       case ST_BACKWARD:
-      analogWrite(IN2,PWM_MOVE);
-      analogWrite(IN4,PWM_MOVE);
-      analogWrite(IN1,PWM_STOP);
-      analogWrite(IN3,PWM_STOP);
-      delay(1000);
-      motor = ST_LEFT;
+      analogWrite(IN2,PWM_MOVE); // Motor on
+      analogWrite(IN4,PWM_MOVE); // Motor on
+      analogWrite(IN1,PWM_STOP); // Motor off
+      analogWrite(IN3,PWM_STOP); // Motor off
+      motor = state_check();     // Check next state of FSM
       break;
-
+     // LEFT State
       case ST_LEFT:
-      analogWrite(IN1,PWM_MOVE);
-      analogWrite(IN4,PWM_MOVE);
-      analogWrite(IN2,PWM_STOP);
-      analogWrite(IN3,PWM_STOP);
-      delay(1000);
-      motor = ST_RIGHT;
+      analogWrite(IN1,PWM_MOVE); // Motor on
+      analogWrite(IN4,PWM_MOVE); // Motor on
+      analogWrite(IN2,PWM_STOP); // Motor off
+      analogWrite(IN3,PWM_STOP); // Motor off
+      motor = state_check();     // Check next state of FSM
       break;
-
+     // RIGHT State
       case ST_RIGHT:
-      analogWrite(IN2,PWM_MOVE);
-      analogWrite(IN3,PWM_MOVE);
-      analogWrite(IN1,PWM_STOP);
-      analogWrite(IN4,PWM_STOP);
-      delay(1000);
-      motor = ST_IDLE;
+      analogWrite(IN2,PWM_MOVE); // Motor on
+      analogWrite(IN3,PWM_MOVE); // Motor on
+      analogWrite(IN1,PWM_STOP); // Motor off
+      analogWrite(IN4,PWM_STOP); // Motor off
+      motor = state_check();     // Check next state of FSM
       break;
-
     } // End of switch-case statement
-    // Task Delay by 
-    vTaskDelay(DELAY_M);
+    vTaskDelay(DELAY_M);         // Task Delay by 100 ms
   } // End of while-loop
 } // End of task_debounce function
 
 
-/** @brief   Task outputs a 250 Hz SquareWave on Pin 12.
- *  @details This task outputs a 250 Hz, 50% Duty Cycle on GPIO 12 of
- *           ESP32 Microcontroller. Square wave will be generated iff the inter-task shared variable
- *           "hide" is False; otherwise, if hide is true, the square wave won’t be shown,
- *           and the pin will sit at logic zero.
+/** @brief   Task controls the Tank's Barrel.
+ *  @details This task runs a FSM which controls the Barrel of the tank.
+ *           There are 3 possible states: Idle, Up, and Down.
+ *           The state depends on the data sent via bluetooth.
+ * 
  *  @param   p_params A pointer to parameters passed to this task. This 
  *           pointer is ignored; it should be set to @c NULL in the 
  *           call to @c xTaskCreate() which starts this task
@@ -126,11 +121,11 @@ void task_barrel(void* p_param){
 } // End of task_debounce function
 
 
-/** @brief   Task outputs a 250 Hz SquareWave on Pin 12.
- *  @details This task outputs a 250 Hz, 50% Duty Cycle on GPIO 12 of
- *           ESP32 Microcontroller. Square wave will be generated iff the inter-task shared variable
- *           "hide" is False; otherwise, if hide is true, the square wave won’t be shown,
- *           and the pin will sit at logic zero.
+/** @brief   Task controls the Tank's Turret.
+ *  @details This task runs a FSM which controls the Turret of the tank.
+ *           There are 3 possible states: Idle, Clockwise (CW), and Counter-Clockwise (CCW).
+ *           The state depends on the data sent via bluetooth.
+ * 
  *  @param   p_params A pointer to parameters passed to this task. This 
  *           pointer is ignored; it should be set to @c NULL in the 
  *           call to @c xTaskCreate() which starts this task
@@ -170,3 +165,29 @@ void task_turret(void* p_param){
     vTaskDelay(DELAY_S);
   } // End of while-loop
 } // End of task_debounce function
+
+
+/** @brief   This function returns the state for the movement motors.
+ *  @details This function reads the current value of the share variable "movement"
+ *           and returns the corresponding state value.
+ *           This is used for the movement FSM state variable.
+ * 
+ *  @return  The state variable for movement FSM   
+ */
+state_type state_check() {
+  // Up Button on App was pressed
+  if(movement.get()== 1)
+    return ST_FORWARD;
+  // Down Button on App was pressed
+  else if(movement.get()== 2)
+    return ST_BACKWARD;
+  // Left Button on App was pressed
+  else if(movement.get()== 3)
+    return ST_LEFT;
+  // Right Button on App was pressed
+  else if(movement.get()== 4)
+    return ST_RIGHT;
+  // None of the direction buttons on App were pressed
+  else
+    return ST_IDLE;
+}
