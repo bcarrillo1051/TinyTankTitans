@@ -9,10 +9,10 @@
  * These variables account for the features the user can control via bluetooth:
  * Tank 2D motion, barrel and turret angle, and IR data shooting.
  */
-
-#include <taskshare.h>
+/*--------------------------------INCLUDE----------------------------------- */
 #include <Arduino.h>
 #include <PrintStream.h>
+#include <taskshare.h>
 
 /*-----------------SHARED VARIABLES DEFINITIONS-------------------------- */
 extern Share<uint16_t> movement;
