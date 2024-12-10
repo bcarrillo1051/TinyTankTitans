@@ -39,7 +39,7 @@ class MyCallbacks: public BLECharacteristicCallbacks {
   }
 };
 
-void setup() {
+void setup_B() {
   // Configure the LED pin as output
   pinMode(ledPIN, OUTPUT);
 
@@ -79,7 +79,7 @@ void setup() {
   pAdvertising->start();
 }
 
-void loop() {
+void loop_B() {
   // Add a delay to reduce CPU usage, as BLE runs in the background
   delay(2000);
 }

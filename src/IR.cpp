@@ -7,11 +7,9 @@
  * 
  * This file contains all the funcions and tasks related to both IR Transmitter and Receiver devices
  * implemented in the Tank project.
- * 
- * 
  */
-#include "IR.h"
 #include "main.h"
+#include "IR.h"
 
 
 /** @brief   Task transmits IR data

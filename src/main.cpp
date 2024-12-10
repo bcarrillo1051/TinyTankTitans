@@ -10,15 +10,17 @@
  * The setup and loop functions are also defined in here.
  * 
  */
+#include "main.h"
 #include "motors.h"
 #include "IR.h"
-#include "main.h"
+
 
 // Share variables used for the three different actions the user can do on the App
 Share<uint16_t> movement ("Tank 2D Movement");          // Used for 2D motion
 Share<bool> fire ("Tank Firing");                       // Used for Firing "IR bullet"
 Share<uint16_t> angle_turret ("Tank Turret Movement");  // Used for Turret motion
 Share<uint16_t> angle_barrel ("Tank Barrel Movement");  // Used for Barrel motion
+
 
 /** @brief   Initializes all the GPIOS, variables and tasks.
  *  @details This function sets up all the GPIOS used for the tank as inputs/outputs.

@@ -9,8 +9,9 @@
  *          Motors for this project are used to move the tank, its barrel, and its turret.
  * 
  */
-#include "motors.h"
 #include "main.h"
+#include "motors.h"
+
 
 
 /** @brief   Task controls 2D motion of the Tank

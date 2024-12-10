@@ -26,7 +26,7 @@
 #define LASER               23
 #define LED                 19
 const uint16_t kCaptureBufferSize = 1024;
-const uint8_t kTimeout = 40;  // Milli-Seconds
+const uint8_t kTimeout = 40;
 const uint32_t data= 0x55555555;
 
 /*--------------------------FUNCTION DECLARATIONS--------------------------- */

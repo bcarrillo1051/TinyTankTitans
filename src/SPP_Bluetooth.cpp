@@ -25,14 +25,14 @@ BluetoothSerial SerialBT; // Create an instance of the BluetoothSerial class
 
 const int ledPin = 2; // Define the GPIO pin number for the LED
 
-void setup() {
+void setup_2() {
   Serial.begin(115200); // Establish a connection between ESP32 and computer via USB, allows for printing
   SerialBT.begin("ESP32-BT"); // Initialize ESP32 BT capability, name provided is how it appears as a BT device
   //Serial.println("Device is ready for blueooth pairing!");
   pinMode(ledPin, OUTPUT); // Set the LED pin as an output
 }
 
-void loop() {
+void loop_2() {
 
   //Serial.println("Device is ready for blueooth pairing!");
   delay(2000);
