@@ -49,10 +49,11 @@ void setup() {
   analogWrite(IN3,PWM_STOP);
   analogWrite(IN4,PWM_STOP);
   // Creating the different tasks associated with the project
-  xTaskCreate (task_movement, "Tank 2D Motion", 2048, NULL, 7, NULL);
-  xTaskCreate (task_barrel, "Tank Barrel Motion", 2048, NULL, 6, NULL);
-  xTaskCreate (task_turret, "Tank Turret Motion", 2048, NULL, 5, NULL);
-  xTaskCreate (task_receiver, "Tank Receiver ", 2048, NULL, 8, NULL); 
+  xTaskCreate (task_movement, "Tank 2D Motion", 2048, NULL, 3, NULL);
+  xTaskCreate (task_barrel, "Tank Barrel Motion", 2048, NULL, 2, NULL);
+  xTaskCreate (task_turret, "Tank Turret Motion", 2048, NULL, 1, NULL);
+  xTaskCreate (task_receiver, "Tank Receiver ", 2048, NULL, 4, NULL);
+  xTaskCreate (task_bluetooth, "Bluetooth Communication", 2048, NULL,5);
 }
 
 
