@@ -5,7 +5,8 @@
  * @date December/10/2024
  * @brief File for IR Receiver and Transmitter definitions used for Tank project
  * 
- * This file is the main
+ * This file defines the constants, function prototypes, and include files used for the IR devices
+ * used in the Tanks project.
  * 
  */
 /*--------------------------------INCLUDE----------------------------------- */

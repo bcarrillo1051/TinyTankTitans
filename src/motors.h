@@ -5,7 +5,8 @@
  * @date December/10/2024
  * @brief File for DC and Servo Motors definitions used for Tank project
  * 
- * This file is the main
+ * This file defines the constants, function prototypes, and include files used for the Motors
+ * used in the Tanks project.
  * 
  */
 /*-----------------INCLUDE---------------------------------------- */
@@ -36,4 +37,6 @@ enum state_type {ST_IDLE, ST_FORWARD, ST_BACKWARD, ST_RIGHT, ST_LEFT,
 void task_movement(void* p_param);
 void task_barrel(void* p_param);
 void task_turret(void* p_param);
-state_type state_check(void);
+state_type state_check_2D(void);
+state_type state_check_Turret(void);
+state_type state_check_Barrel(void);

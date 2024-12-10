@@ -3,19 +3,17 @@
  * @file IR.h
  * @authors Edgar Mora, Bryan Carrillo, Kerr Allan 
  * @date December/10/2024
- * @brief File for IR Receiver and Transmitter definitions used for Tank project
+ * @brief File for defining shared variables
  * 
- * This file is the main
- * 
+ * This file contains the definition of shared variables used for the tank projet.
+ * These variables account for the features the user can control via bluetooth:
+ * Tank 2D motion, barrel and turret angle, and IR data shooting.
  */
 
 #include <taskshare.h>
 #include <Arduino.h>
 
-/*-----------------CONSTANTS DEFINITIONS-------------------------- */
-
-
-// Share variable, Determines if Square Wave will be generated or not
+/*-----------------SHARED VARIABLES DEFINITIONS-------------------------- */
 extern Share<uint16_t> movement;
 extern Share<bool> fire;
 extern Share<uint16_t> angle_barrel;
