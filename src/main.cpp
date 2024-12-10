@@ -12,13 +12,19 @@
 #include "IR.h"
 #include "main.h"
 
-// Share variable, Determines if Square Wave will be generated or not
+// Share variables used for the three different actions the user can do on the App
 Share<uint16_t> movement ("Tank 2D Movement");
 Share<bool> fire ("Tank Firing");
-Share<uint16_t> angles ("Tank Turret and Barrel Movement");
+Share<uint16_t> angle_turret ("Tank Turret  Movement");
+Share<uint16_t> angle_barrel ("Tank Barrel Movement");
 
 void setup() {
   
+  movement.put(0);
+  fire.put(false);
+  angle_turret.put(0);
+  angle_barrel.put(0);
+
   pinMode(ELEVATION,OUTPUT);
   pinMode(AZIMUTH,OUTPUT);
   pinMode(IN1,OUTPUT);

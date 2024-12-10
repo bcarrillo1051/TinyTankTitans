@@ -14,16 +14,18 @@
 #include <taskshare.h>
 
 /*-----------------CONSTANT DEFINITIONS--------------------------- */
-#define ELEVATION   25
-#define AZIMUTH     15
-#define IN1         12
-#define IN2         14
-#define IN3         16
-#define IN4          4
-#define PWM_MOVE    70
-#define PWM_STOP     0
-#define DELAY_M    100
-#define DELAY_S    100
+#define ELEVATION      25
+#define AZIMUTH        15
+#define IN1            12
+#define IN2            14
+#define IN3            16
+#define IN4             4
+#define PWM_MOVE       70
+#define PWM_STOP        0
+#define DELAY_M       100
+#define MAX_ANGLE     180
+#define MIN_ANGLE       0
+#define ANGLE_INCREMENT 5
 
 // Defining a new type called state_type.
 // Will be used to define the states for FSM

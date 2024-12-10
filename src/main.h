@@ -18,4 +18,5 @@
 // Share variable, Determines if Square Wave will be generated or not
 extern Share<uint16_t> movement;
 extern Share<bool> fire;
-extern Share<uint16_t> angles;
+extern Share<uint16_t> angle_barrel;
+extern Share<uint16_t> angle_turret;
