@@ -11,11 +11,11 @@ Tiny Tank Titans is a project inspired by the Wii Play Tanks minigame. This repo
 - [Project Overview](#project-overview)
 - [Features](#features)
 - [Installation](#installation)
-- [Usage](#usage)
+<!-- - [Usage](#usage)
 - [Folder Structure](#folder-structure)
 - [Contributing](#contributing)
 - [License](#license)
-- [Acknowledgments](#acknowledgments)
+- [Acknowledgments](#acknowledgments) -->
 
 ---
 
@@ -44,6 +44,5 @@ This project is built with the following goals:
 ---
 
 ## Installation
-1. Clone the repository:
-   git clone https://github.com/bcarrillo1051/TinyTankTitans.git
-   cd TinyTankTitans
+Clone the repository:
+   - git clone https://github.com/bcarrillo1051/TinyTankTitans.git

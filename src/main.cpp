@@ -10,10 +10,12 @@
  */
 #include "motors.h"
 #include "IR.h"
-
+#include "bluetooth.h"
 
 void setup() {
   
+  setup_SPP_Bluetooth(); 
+
   pinMode(ELEVATION,OUTPUT);
   pinMode(AZIMUTH,OUTPUT);
   pinMode(IN1,OUTPUT);
@@ -33,7 +35,8 @@ void setup() {
   xTaskCreate (task_movement, "Tank 2D Motion", 2048, NULL, 7, NULL);
   xTaskCreate (task_barrel, "Tank Barrel Motion", 2048, NULL, 6, NULL);
   xTaskCreate (task_turret, "Tank Turret Motion", 2048, NULL, 5, NULL);
-  xTaskCreate (task_receiver, "Tank Receiver ", 2048, NULL, 8, NULL); 
+  xTaskCreate (task_receiver, "Tank Receiver ", 2048, NULL, 8, NULL);
+  xTaskCreate (task_bluetooth, "Tank Bluetooth", 1024, NULL, 9, NULL);
 }
 
 void loop() {
