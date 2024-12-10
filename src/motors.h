@@ -12,7 +12,7 @@
 /*-----------------INCLUDE---------------------------------------- */
 #include <Arduino.h>
 #include <ESP32_Servo.h>
-#include <taskshare.h>
+#include "main.h"
 
 /*-----------------CONSTANT DEFINITIONS--------------------------- */
 #define ELEVATION      25

@@ -12,6 +12,7 @@
 
 #include <taskshare.h>
 #include <Arduino.h>
+#include <PrintStream.h>
 
 /*-----------------SHARED VARIABLES DEFINITIONS-------------------------- */
 extern Share<uint16_t> movement;
