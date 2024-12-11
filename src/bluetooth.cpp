@@ -1,6 +1,6 @@
 /**
  * @file SPP_Bluetooth.cpp
- * @author Bryan Carrillo, Edgar Mora, Kerr Allen
+ * @author Bryan Carrillo, Edgar Mora, Kerr Allan
  * @brief Makes use of the bluetooth capability for ESP32 (bluetooth server) 
  *        and processes received data from phones (bluetooth client) 
  * @version 0.1
@@ -9,23 +9,38 @@
  * @copyright Copyright (c) 2024
  * 
  */
-
+#include "main.h"
 #include "bluetooth.h"
 #include<iostream>
 #include<string.h>
-#include "main.h"
+
 
 // Global Variables
 BluetoothSerial SerialBT; // Create an instance of the BluetoothSerial class
 const int ledPin = 2; // Define the GPIO pin number for the LED
 
+
+/** @brief   Function that initializes ESP32 bluetooth capability
+ *  @details This function initializes the bluetooth capability of the ESP32 so that it can be a
+ *           selectable device
+ * 
+ *  @param   p_params A pointer to parameters passed to this task. This 
+ *           pointer is ignored; it should be set to @c NULL in the 
+ *           call to @c xTaskCreate() which starts this task
+ */
 void setup_SPP_Bluetooth(){
   Serial.begin(115200); // Establish a connection between ESP32 and computer via USB, allows for printing
   SerialBT.begin("ESP32-BT"); // Initialize ESP32 BT capability, name provided is how it appears as a BT device
-  //Serial.println("Device is ready for blueooth pairing!");
-  pinMode(ledPin, OUTPUT); // Set the LED pin as an output
 }
 
+
+/** @brief   Task that set up bluetooth capability for Tank Project
+ *  @details This task takes analog joystick data, as well as button data and maps it to a D-pad range
+ * 
+ *  @param   p_params A pointer to parameters passed to this task. This 
+ *           pointer is ignored; it should be set to @c NULL in the 
+ *           call to @c xTaskCreate() which starts this task
+ */
 void task_bluetooth(void* p_param){
 
   // D-Pad look up table based on x and y area that is detected
@@ -55,15 +70,15 @@ void task_bluetooth(void* p_param){
   
       // --- BUTTON PRESS CHECK ---
       if (c == 'b'){
-        Serial.println("Button Pressed!");
+        // Serial.println("Button Pressed!");
         // digitalWrite(ledPin, HIGH);
         // delay(1000);
         // digitalWrite(ledPin, LOW);
         // Serial.println();
-        // fire.put(1);
+        fire.put(1); // Shoot 
       }
       else {
-        fire.put(0);
+        fire.put(0); // Don't shoot
       }
 
       // --- MOVEMENT X-AXIS CHECK (LEFT ANALOG STICK) ---
@@ -191,11 +206,8 @@ void task_bluetooth(void* p_param){
           angle_barrel.put(0);
           angle_turret.put(0);
         }
-
       }
     }
-
   vTaskDelay(100);
   }
 }
-

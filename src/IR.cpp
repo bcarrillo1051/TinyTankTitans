@@ -5,8 +5,8 @@
  * @date December/10/2024
  * @brief File for IR Receiver and Transmitter functions used for Tank project
  * 
- * This file contains all the funcions and tasks related to both IR Transmitter and Receiver devices
- * implemented in the Tank project.
+ * This file contains all the funcions and tasks related to both IR Transmitter and Receiver devices.
+ * These tasks include transmission and reception of IR data to/from another tank.
  */
 #include "main.h"
 #include "IR.h"
