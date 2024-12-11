@@ -92,34 +92,43 @@ $(function(){ initResizable(false); });
 </div><!--header-->
 <div class="contents">
 <a href="motors_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment">/*-----------------INCLUDE---------------------------------------- */</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;Arduino.h&gt;</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &lt;ESP32_Servo.h&gt;</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment">/*-----------------CONSTANT DEFINITIONS--------------------------- */</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#define ELEVATION   25</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#define AZIMUTH     15</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#define IN1         12</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#define IN2         14</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#define IN3         16</span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#define IN4          4</span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#define PWM_MOVE    70</span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#define PWM_STOP     0</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#define DELAY_M   2500</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#define DELAY_S    100</span></div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment">// Defining a new type called state_type.</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment">// Will be used to define the states for FSM</span></div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="keyword">enum</span> state_type {ST_IDLE, ST_FORWARD, ST_BACKWARD, ST_RIGHT, ST_LEFT,</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>                 ST_UP, ST_DOWN, ST_CW, ST_CCW};</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment">/*-----------------FUNCTION DECLARATIONS-------------------------- */</span></div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="keywordtype">void</span> <a class="code hl_function" href="motors_8h.html#a925ec0c1b0a736e565401339eee1c05a">task_movement</a>(<span class="keywordtype">void</span>* p_param);</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="keywordtype">void</span> <a class="code hl_function" href="motors_8h.html#a66a6fc13a541e01064c255165b5a1f9b">task_barrel</a>(<span class="keywordtype">void</span>* p_param);</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="keywordtype">void</span> <a class="code hl_function" href="motors_8h.html#a7f712f3ef906ba6b3b485e163c51e256">task_turret</a>(<span class="keywordtype">void</span>* p_param);</div>
-<div class="ttc" id="amotors_8h_html_a66a6fc13a541e01064c255165b5a1f9b"><div class="ttname"><a href="motors_8h.html#a66a6fc13a541e01064c255165b5a1f9b">task_barrel</a></div><div class="ttdeci">void task_barrel(void *p_param)</div><div class="ttdoc">Task outputs a 250 Hz SquareWave on Pin 12.</div><div class="ttdef"><b>Definition</b> motors.cpp:92</div></div>
-<div class="ttc" id="amotors_8h_html_a7f712f3ef906ba6b3b485e163c51e256"><div class="ttname"><a href="motors_8h.html#a7f712f3ef906ba6b3b485e163c51e256">task_turret</a></div><div class="ttdeci">void task_turret(void *p_param)</div><div class="ttdoc">Task outputs a 250 Hz SquareWave on Pin 12.</div><div class="ttdef"><b>Definition</b> motors.cpp:138</div></div>
-<div class="ttc" id="amotors_8h_html_a925ec0c1b0a736e565401339eee1c05a"><div class="ttname"><a href="motors_8h.html#a925ec0c1b0a736e565401339eee1c05a">task_movement</a></div><div class="ttdeci">void task_movement(void *p_param)</div><div class="ttdoc">Task outputs a 250 Hz SquareWave on Pin 12.</div><div class="ttdef"><b>Definition</b> motors.cpp:23</div></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment">/*-----------------INCLUDE---------------------------------------- */</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &lt;Arduino.h&gt;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;main.h&quot;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &lt;ESP32_Servo.h&gt;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment">/*-----------------CONSTANT DEFINITIONS--------------------------- */</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#define ELEVATION      25</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#define AZIMUTH        15</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#define IN1            12</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#define IN2            14</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#define IN3            16</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#define IN4             4</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#define PWM_MOVE       70</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#define PWM_STOP        0</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#define DELAY_M       100</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#define MAX_ANGLE     180</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#define MIN_ANGLE       0</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#define ANGLE_INCREMENT 5</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment">// Defining a new type called state_type.</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment">// Will be used to define the states for FSM</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="keyword">enum</span> state_type {ST_IDLE, ST_FORWARD, ST_BACKWARD, ST_RIGHT, ST_LEFT,</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>                 ST_UP, ST_DOWN, ST_CW, ST_CCW};</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment">/*-----------------FUNCTION DECLARATIONS-------------------------- */</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="keywordtype">void</span> <a class="code hl_function" href="motors_8h.html#a925ec0c1b0a736e565401339eee1c05a">task_movement</a>(<span class="keywordtype">void</span>* p_param);</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="keywordtype">void</span> <a class="code hl_function" href="motors_8h.html#a66a6fc13a541e01064c255165b5a1f9b">task_barrel</a>(<span class="keywordtype">void</span>* p_param);</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="keywordtype">void</span> <a class="code hl_function" href="motors_8h.html#a7f712f3ef906ba6b3b485e163c51e256">task_turret</a>(<span class="keywordtype">void</span>* p_param);</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>state_type <a class="code hl_function" href="motors_8h.html#a9ac22c6264e5ff41ce70fa760ca57ddd">state_check_2D</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>state_type <a class="code hl_function" href="motors_8h.html#a687d71c466b0b68e43cd1eec7bd46531">state_check_Turret</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>state_type <a class="code hl_function" href="motors_8h.html#ab3c235ce3b87e5711d7e427c8f3048ee">state_check_Barrel</a>(<span class="keywordtype">void</span>);</div>
+<div class="ttc" id="amotors_8h_html_a66a6fc13a541e01064c255165b5a1f9b"><div class="ttname"><a href="motors_8h.html#a66a6fc13a541e01064c255165b5a1f9b">task_barrel</a></div><div class="ttdeci">void task_barrel(void *p_param)</div><div class="ttdoc">Task controls the Tank's Barrel.</div><div class="ttdef"><b>Definition</b> motors.cpp:88</div></div>
+<div class="ttc" id="amotors_8h_html_a687d71c466b0b68e43cd1eec7bd46531"><div class="ttname"><a href="motors_8h.html#a687d71c466b0b68e43cd1eec7bd46531">state_check_Turret</a></div><div class="ttdeci">state_type state_check_Turret(void)</div><div class="ttdoc">This function returns the state for the turret motor.</div><div class="ttdef"><b>Definition</b> motors.cpp:210</div></div>
+<div class="ttc" id="amotors_8h_html_a7f712f3ef906ba6b3b485e163c51e256"><div class="ttname"><a href="motors_8h.html#a7f712f3ef906ba6b3b485e163c51e256">task_turret</a></div><div class="ttdeci">void task_turret(void *p_param)</div><div class="ttdoc">Task controls the Tank's Turret.</div><div class="ttdef"><b>Definition</b> motors.cpp:137</div></div>
+<div class="ttc" id="amotors_8h_html_a925ec0c1b0a736e565401339eee1c05a"><div class="ttname"><a href="motors_8h.html#a925ec0c1b0a736e565401339eee1c05a">task_movement</a></div><div class="ttdeci">void task_movement(void *p_param)</div><div class="ttdoc">Task controls 2D motion of the Tank.</div><div class="ttdef"><b>Definition</b> motors.cpp:26</div></div>
+<div class="ttc" id="amotors_8h_html_a9ac22c6264e5ff41ce70fa760ca57ddd"><div class="ttname"><a href="motors_8h.html#a9ac22c6264e5ff41ce70fa760ca57ddd">state_check_2D</a></div><div class="ttdeci">state_type state_check_2D(void)</div><div class="ttdoc">This function returns the state for the movement motors.</div><div class="ttdef"><b>Definition</b> motors.cpp:184</div></div>
+<div class="ttc" id="amotors_8h_html_ab3c235ce3b87e5711d7e427c8f3048ee"><div class="ttname"><a href="motors_8h.html#ab3c235ce3b87e5711d7e427c8f3048ee">state_check_Barrel</a></div><div class="ttdeci">state_type state_check_Barrel(void)</div><div class="ttdoc">This function returns the state for the barrel motors.</div><div class="ttdef"><b>Definition</b> motors.cpp:230</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

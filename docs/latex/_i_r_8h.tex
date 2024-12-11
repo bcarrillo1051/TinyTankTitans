@@ -6,6 +6,7 @@ File for IR Receiver and Transmitter definitions used for Tank project.
 
 
 {\ttfamily \#include $<$Arduino.\+h$>$}\newline
+{\ttfamily \#include "{}main.\+h"{}}\newline
 {\ttfamily \#include $<$IRremote\+ESP8266.\+h$>$}\newline
 {\ttfamily \#include $<$IRsend.\+h$>$}\newline
 {\ttfamily \#include $<$IRrecv.\+h$>$}\newline
@@ -33,12 +34,10 @@ File for IR Receiver and Transmitter definitions used for Tank project.
 \item 
 void \mbox{\hyperlink{_i_r_8h_adb4f977bb83c3513c9a3115aa4d3f2e5}{task\+\_\+receiver}} (void \texorpdfstring{$\ast$}{*}p\+\_\+param)
 \begin{DoxyCompactList}\small\item\em Task for receiving and processing IR (infrared) signals. \end{DoxyCompactList}\item 
-\Hypertarget{_i_r_8h_adaae0471b21b3b90ea804b0f2f0f59be}\label{_i_r_8h_adaae0471b21b3b90ea804b0f2f0f59be} 
-void {\bfseries task\+\_\+transmitter} (void \texorpdfstring{$\ast$}{*}p\+\_\+param)
-\item 
-\Hypertarget{_i_r_8h_a817d4fd18b716179e552f7d80fb089b1}\label{_i_r_8h_a817d4fd18b716179e552f7d80fb089b1} 
-void {\bfseries verify\+\_\+signal} (uint32\+\_\+t signal\+\_\+\+Data)
-\end{DoxyCompactItemize}
+void \mbox{\hyperlink{_i_r_8h_adaae0471b21b3b90ea804b0f2f0f59be}{task\+\_\+transmitter}} (void \texorpdfstring{$\ast$}{*}p\+\_\+param)
+\begin{DoxyCompactList}\small\item\em Task transmits IR data. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_i_r_8h_a817d4fd18b716179e552f7d80fb089b1}{verify\+\_\+signal}} (uint32\+\_\+t signal\+\_\+\+Data)
+\begin{DoxyCompactList}\small\item\em This function determines if the tank was succesfully shot. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
@@ -56,6 +55,8 @@ const uint32\+\_\+t {\bfseries data} = 0x55555555
 \doxysubsection{Detailed Description}
 File for IR Receiver and Transmitter definitions used for Tank project. 
 
+File for defining shared variables.
+
 Copyright (C) 2024 by Tiny Tank Titans
 
 \begin{DoxyAuthor}{Authors}
@@ -64,7 +65,17 @@ Edgar Mora, Bryan Carrillo, Kerr Allan
 \begin{DoxyDate}{Date}
 December/10/2024 
 \end{DoxyDate}
-This file is the main 
+This file defines the constants, function prototypes, and include files used for the IR devices used in the Tanks project.
+
+Copyright (C) 2024 by Tiny Tank Titans
+
+\begin{DoxyAuthor}{Authors}
+Edgar Mora, Bryan Carrillo, Kerr Allan 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+December/10/2024 
+\end{DoxyDate}
+This file contains the definition of shared variables used for the tank projet. These variables account for the features the user can control via bluetooth\+: Tank 2D motion, barrel and turret angle, and IR data shooting. 
 
 \doxysubsection{Function Documentation}
 \Hypertarget{_i_r_8h_adb4f977bb83c3513c9a3115aa4d3f2e5}\index{IR.h@{IR.h}!task\_receiver@{task\_receiver}}
@@ -81,6 +92,41 @@ This function initializes an IR receiver and continuously checks for decoded IR 
 
 
 \begin{DoxyParams}{Parameters}
-{\em p\+\_\+param} & Pointer to the parameter passed to the task (unused in this implementation). \\
+{\em p\+\_\+params} & A pointer to parameters passed to this task. This pointer is ignored; it should be set to {\ttfamily NULL} in the call to {\ttfamily x\+Task\+Create()} which starts this task \\
+\hline
+\end{DoxyParams}
+\Hypertarget{_i_r_8h_adaae0471b21b3b90ea804b0f2f0f59be}\index{IR.h@{IR.h}!task\_transmitter@{task\_transmitter}}
+\index{task\_transmitter@{task\_transmitter}!IR.h@{IR.h}}
+\doxysubsubsection{\texorpdfstring{task\_transmitter()}{task\_transmitter()}}
+{\footnotesize\ttfamily \label{_i_r_8h_adaae0471b21b3b90ea804b0f2f0f59be} 
+void task\+\_\+transmitter (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{p\+\_\+param}{}\end{DoxyParamCaption})}
+
+
+
+Task transmits IR data. 
+
+This task transmits IR data through the tank\textquotesingle{}s barrel based on the shared variable "{}fire"{} controlled by the phone-\/based app.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+params} & A pointer to parameters passed to this task. This pointer is ignored; it should be set to {\ttfamily NULL} in the call to {\ttfamily x\+Task\+Create()} which starts this task \\
+\hline
+\end{DoxyParams}
+\Hypertarget{_i_r_8h_a817d4fd18b716179e552f7d80fb089b1}\index{IR.h@{IR.h}!verify\_signal@{verify\_signal}}
+\index{verify\_signal@{verify\_signal}!IR.h@{IR.h}}
+\doxysubsubsection{\texorpdfstring{verify\_signal()}{verify\_signal()}}
+{\footnotesize\ttfamily \label{_i_r_8h_a817d4fd18b716179e552f7d80fb089b1} 
+void verify\+\_\+signal (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{signal\+\_\+\+Data}{}\end{DoxyParamCaption})}
+
+
+
+This function determines if the tank was succesfully shot. 
+
+This function attempts to read data sent to the IR receiver. If the data that represents a bullet shot is received, then an LED light is turned ON for 1 second to report shooting
+
+
+\begin{DoxyParams}{Parameters}
+{\em signal\+\_\+\+Data} & Current IR data read by receiver. ~\newline
+ \\
 \hline
 \end{DoxyParams}

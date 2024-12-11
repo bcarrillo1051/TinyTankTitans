@@ -96,18 +96,19 @@ $(function(){ initResizable(false); });
 
 <p>File for IR Receiver and Transmitter functions used for Tank project.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="_i_r_8h_source.html">IR.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;main.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="_i_r_8h_source.html">IR.h</a>&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:adaae0471b21b3b90ea804b0f2f0f59be" id="r_adaae0471b21b3b90ea804b0f2f0f59be"><td class="memItemLeft" align="right" valign="top"><a id="adaae0471b21b3b90ea804b0f2f0f59be" name="adaae0471b21b3b90ea804b0f2f0f59be"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>task_transmitter</b> (void *p_param)</td></tr>
+<tr class="memitem:adaae0471b21b3b90ea804b0f2f0f59be" id="r_adaae0471b21b3b90ea804b0f2f0f59be"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adaae0471b21b3b90ea804b0f2f0f59be">task_transmitter</a> (void *p_param)</td></tr>
+<tr class="memdesc:adaae0471b21b3b90ea804b0f2f0f59be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Task transmits IR data.  <br /></td></tr>
 <tr class="separator:adaae0471b21b3b90ea804b0f2f0f59be"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adb4f977bb83c3513c9a3115aa4d3f2e5" id="r_adb4f977bb83c3513c9a3115aa4d3f2e5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adb4f977bb83c3513c9a3115aa4d3f2e5">task_receiver</a> (void *p_param)</td></tr>
 <tr class="memdesc:adb4f977bb83c3513c9a3115aa4d3f2e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Task for receiving and processing IR (infrared) signals.  <br /></td></tr>
 <tr class="separator:adb4f977bb83c3513c9a3115aa4d3f2e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a817d4fd18b716179e552f7d80fb089b1" id="r_a817d4fd18b716179e552f7d80fb089b1"><td class="memItemLeft" align="right" valign="top"><a id="a817d4fd18b716179e552f7d80fb089b1" name="a817d4fd18b716179e552f7d80fb089b1"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>verify_signal</b> (uint32_t signal_Data)</td></tr>
+<tr class="memitem:a817d4fd18b716179e552f7d80fb089b1" id="r_a817d4fd18b716179e552f7d80fb089b1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a817d4fd18b716179e552f7d80fb089b1">verify_signal</a> (uint32_t signal_Data)</td></tr>
+<tr class="memdesc:a817d4fd18b716179e552f7d80fb089b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function determines if the tank was succesfully shot.  <br /></td></tr>
 <tr class="separator:a817d4fd18b716179e552f7d80fb089b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -115,7 +116,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>verify_signal</b> (ui
 <p>Copyright (C) 2024 by Tiny Tank Titans</p>
 <dl class="section author"><dt>Authors</dt><dd>Edgar Mora, Bryan Carrillo, Kerr Allan </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>December/10/2024 </dd></dl>
-<p>This file is the main </p>
+<p>This file contains all the funcions and tasks related to both IR Transmitter and Receiver devices. These tasks include transmission and reception of IR data to/from another tank. </p>
 </div><h2 class="groupheader">Function Documentation</h2>
 <a id="adb4f977bb83c3513c9a3115aa4d3f2e5" name="adb4f977bb83c3513c9a3115aa4d3f2e5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#adb4f977bb83c3513c9a3115aa4d3f2e5">&#9670;&#160;</a></span>task_receiver()</h2>
@@ -136,7 +137,60 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>verify_signal</b> (ui
 <p>This function initializes an IR receiver and continuously checks for decoded IR signals. Upon receiving a signal, it verifies the signal value using a user-defined function and resumes the receiver for further signal detection.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">p_param</td><td>Pointer to the parameter passed to the task (unused in this implementation). </td></tr>
+    <tr><td class="paramname">p_params</td><td>A pointer to parameters passed to this task. This pointer is ignored; it should be set to <code>NULL</code> in the call to <code>xTaskCreate()</code> which starts this task </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="adaae0471b21b3b90ea804b0f2f0f59be" name="adaae0471b21b3b90ea804b0f2f0f59be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adaae0471b21b3b90ea804b0f2f0f59be">&#9670;&#160;</a></span>task_transmitter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void task_transmitter </td>
+          <td>(</td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>p_param</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Task transmits IR data. </p>
+<p>This task transmits IR data through the tank's barrel based on the shared variable "fire" controlled by the phone-based app.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p_params</td><td>A pointer to parameters passed to this task. This pointer is ignored; it should be set to <code>NULL</code> in the call to <code>xTaskCreate()</code> which starts this task </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a817d4fd18b716179e552f7d80fb089b1" name="a817d4fd18b716179e552f7d80fb089b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a817d4fd18b716179e552f7d80fb089b1">&#9670;&#160;</a></span>verify_signal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void verify_signal </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>signal_Data</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This function determines if the tank was succesfully shot. </p>
+<p>This function attempts to read data sent to the IR receiver. If the data that represents a bullet shot is received, then an LED light is turned ON for 1 second to report shooting</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">signal_Data</td><td>Current IR data read by receiver. <br  />
+ </td></tr>
   </table>
   </dd>
 </dl>

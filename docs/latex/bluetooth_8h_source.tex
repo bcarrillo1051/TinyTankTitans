@@ -3,6 +3,49 @@
 \mbox{\hyperlink{bluetooth_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ }
-\DoxyCodeLine{00011\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/INCLUDE-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{00012\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/INCLUDE-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <Arduino.h>}\ \textcolor{comment}{//\ Include\ the\ Arduino\ library\ for\ basic\ functionalities}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}BluetoothSerial.h"{}}\ \textcolor{comment}{//\ Include\ the\ BluetoothSerial\ library\ for\ Bluetooth\ communication}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/MACROS-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{00017\ \textcolor{comment}{//\ Check\ if\ Bluetooth\ is\ properly\ enabled\ on\ ESP32}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#if\ !defined(CONFIG\_BT\_ENABLED)\ ||\ !defined(CONFIG\_BLUEDROID\_ENABLED)}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#error\ Bluetooth\ is\ not\ enabled!\ Please\ run\ \`{}make\ menuconfig`\ to\ and\ enable\ it}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#if\ !defined(CONFIG\_BT\_SPP\_ENABLED)}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#error\ Serial\ Bluetooth\ not\ available\ or\ not\ enabled.\ It\ is\ only\ available\ for\ the\ ESP32\ chip.}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{comment}{//\ Analog\ stick\ bound\ defitions}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#define\ LEFT\_LOWER\_BOUND\_X\ 4}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#define\ LEFT\_UPPER\_BOUND\_X\ 34}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#define\ RIGHT\_LOWER\_BOUND\_X\ 74}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#define\ RIGHT\_UPPER\_BOUND\_X\ 104}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#define\ UP\_DOWN\_LOWER\_BOUND\_X\ 34}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#define\ UP\_DOWN\_UPPER\_BOUND\_X\ 74}}
+\DoxyCodeLine{00033\ \textcolor{comment}{//\ \#define\ UP\_LOWER\_BOUND\_X\ 34}}
+\DoxyCodeLine{00034\ \textcolor{comment}{//\ \#define\ UP\_UPPER\_BOUND\_X\ 74}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#define\ LEFT\_RIGHT\_LOWER\_BOUND\_Y\ 34}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#define\ LEFT\_RIGHT\_UPPER\_BOUND\_Y\ 74}}
+\DoxyCodeLine{00038\ \textcolor{comment}{//\ \#define\ RIGHT\_LOWER\_BOUND\_Y\ 34}}
+\DoxyCodeLine{00039\ \textcolor{comment}{//\ \#define\ RIGHT\_UPPER\_BOUND\_Y\ 74}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#define\ DOWN\_LOWER\_BOUND\_Y\ 4}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#define\ DOWN\_UPPER\_BOUND\_Y\ 34}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#define\ UP\_LOWER\_BOUND\_Y\ 74}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#define\ UP\_UPPER\_BOUND\_Y\ 104}}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{comment}{//\ D-\/Pad\ Regions}}
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#define\ CENTER\ 0}}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#define\ UP\ 1}}
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#define\ DOWN\ 2}}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#define\ LEFT\ 3}}
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#define\ RIGHT\ 4}}
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#define\ DIAGONAL\ 5}}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/FUNCTION\ DECLARATIONS-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{00054\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{bluetooth_8h_a9952cacbcd73405f438880db078c5d25}{setup\_SPP\_Bluetooth}}();\ }
+\DoxyCodeLine{00055\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{bluetooth_8h_a13e9ae9525140b4b8ca18ac179fe983f}{task\_bluetooth}}(\textcolor{keywordtype}{void}*\ p\_param);}
 
 \end{DoxyCode}

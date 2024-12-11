@@ -5,18 +5,17 @@
 File for IR Receiver and Transmitter functions used for Tank project.  
 
 
+{\ttfamily \#include "{}main.\+h"{}}\newline
 {\ttfamily \#include "{}IR.\+h"{}}\newline
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{_i_r_8cpp_adaae0471b21b3b90ea804b0f2f0f59be}\label{_i_r_8cpp_adaae0471b21b3b90ea804b0f2f0f59be} 
-void {\bfseries task\+\_\+transmitter} (void \texorpdfstring{$\ast$}{*}p\+\_\+param)
-\item 
+void \mbox{\hyperlink{_i_r_8cpp_adaae0471b21b3b90ea804b0f2f0f59be}{task\+\_\+transmitter}} (void \texorpdfstring{$\ast$}{*}p\+\_\+param)
+\begin{DoxyCompactList}\small\item\em Task transmits IR data. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{_i_r_8cpp_adb4f977bb83c3513c9a3115aa4d3f2e5}{task\+\_\+receiver}} (void \texorpdfstring{$\ast$}{*}p\+\_\+param)
 \begin{DoxyCompactList}\small\item\em Task for receiving and processing IR (infrared) signals. \end{DoxyCompactList}\item 
-\Hypertarget{_i_r_8cpp_a817d4fd18b716179e552f7d80fb089b1}\label{_i_r_8cpp_a817d4fd18b716179e552f7d80fb089b1} 
-void {\bfseries verify\+\_\+signal} (uint32\+\_\+t signal\+\_\+\+Data)
-\end{DoxyCompactItemize}
+void \mbox{\hyperlink{_i_r_8cpp_a817d4fd18b716179e552f7d80fb089b1}{verify\+\_\+signal}} (uint32\+\_\+t signal\+\_\+\+Data)
+\begin{DoxyCompactList}\small\item\em This function determines if the tank was succesfully shot. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -30,7 +29,7 @@ Edgar Mora, Bryan Carrillo, Kerr Allan
 \begin{DoxyDate}{Date}
 December/10/2024 
 \end{DoxyDate}
-This file is the main 
+This file contains all the funcions and tasks related to both IR Transmitter and Receiver devices. These tasks include transmission and reception of IR data to/from another tank. 
 
 \doxysubsection{Function Documentation}
 \Hypertarget{_i_r_8cpp_adb4f977bb83c3513c9a3115aa4d3f2e5}\index{IR.cpp@{IR.cpp}!task\_receiver@{task\_receiver}}
@@ -47,6 +46,41 @@ This function initializes an IR receiver and continuously checks for decoded IR 
 
 
 \begin{DoxyParams}{Parameters}
-{\em p\+\_\+param} & Pointer to the parameter passed to the task (unused in this implementation). \\
+{\em p\+\_\+params} & A pointer to parameters passed to this task. This pointer is ignored; it should be set to {\ttfamily NULL} in the call to {\ttfamily x\+Task\+Create()} which starts this task \\
+\hline
+\end{DoxyParams}
+\Hypertarget{_i_r_8cpp_adaae0471b21b3b90ea804b0f2f0f59be}\index{IR.cpp@{IR.cpp}!task\_transmitter@{task\_transmitter}}
+\index{task\_transmitter@{task\_transmitter}!IR.cpp@{IR.cpp}}
+\doxysubsubsection{\texorpdfstring{task\_transmitter()}{task\_transmitter()}}
+{\footnotesize\ttfamily \label{_i_r_8cpp_adaae0471b21b3b90ea804b0f2f0f59be} 
+void task\+\_\+transmitter (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{p\+\_\+param}{}\end{DoxyParamCaption})}
+
+
+
+Task transmits IR data. 
+
+This task transmits IR data through the tank\textquotesingle{}s barrel based on the shared variable "{}fire"{} controlled by the phone-\/based app.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+params} & A pointer to parameters passed to this task. This pointer is ignored; it should be set to {\ttfamily NULL} in the call to {\ttfamily x\+Task\+Create()} which starts this task \\
+\hline
+\end{DoxyParams}
+\Hypertarget{_i_r_8cpp_a817d4fd18b716179e552f7d80fb089b1}\index{IR.cpp@{IR.cpp}!verify\_signal@{verify\_signal}}
+\index{verify\_signal@{verify\_signal}!IR.cpp@{IR.cpp}}
+\doxysubsubsection{\texorpdfstring{verify\_signal()}{verify\_signal()}}
+{\footnotesize\ttfamily \label{_i_r_8cpp_a817d4fd18b716179e552f7d80fb089b1} 
+void verify\+\_\+signal (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{signal\+\_\+\+Data}{}\end{DoxyParamCaption})}
+
+
+
+This function determines if the tank was succesfully shot. 
+
+This function attempts to read data sent to the IR receiver. If the data that represents a bullet shot is received, then an LED light is turned ON for 1 second to report shooting
+
+
+\begin{DoxyParams}{Parameters}
+{\em signal\+\_\+\+Data} & Current IR data read by receiver. ~\newline
+ \\
 \hline
 \end{DoxyParams}

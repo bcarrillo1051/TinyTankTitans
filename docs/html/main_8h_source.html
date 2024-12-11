@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Tiny Tank Titans: File Members</title>
+<title>Tiny Tank Titans: C:/Users/carri/OneDrive/Desktop/ME 507/TinyTankTitans/src/main.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -55,8 +55,6 @@ $(function() {
 /* @license-end */
 </script>
 <div id="main-nav"></div>
-</div><!-- top -->
-<div id="doc-content">
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 $(function(){ initResizable(false); });
@@ -83,23 +81,28 @@ $(function(){ initResizable(false); });
 </div>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle"><div class="title">main.h</div></div>
+</div><!--header-->
 <div class="contents">
-<div class="textblock">Here is a list of all documented file members with links to the documentation:</div><ul>
-<li>loop()&#160;:&#160;<a class="el" href="main_8cpp.html#afe461d27b9c48d5921c00d521181f12f">main.cpp</a></li>
-<li>setup()&#160;:&#160;<a class="el" href="main_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d">main.cpp</a></li>
-<li>setup_SPP_Bluetooth()&#160;:&#160;<a class="el" href="bluetooth_8h.html#a9952cacbcd73405f438880db078c5d25">bluetooth.h</a></li>
-<li>state_check_2D()&#160;:&#160;<a class="el" href="motors_8cpp.html#aceba899c65be445423c45b7fd4101243">motors.cpp</a>, <a class="el" href="motors_8h.html#a9ac22c6264e5ff41ce70fa760ca57ddd">motors.h</a></li>
-<li>state_check_Barrel()&#160;:&#160;<a class="el" href="motors_8cpp.html#a6ddde06ccb889e8b06f306855f5c0e6f">motors.cpp</a>, <a class="el" href="motors_8h.html#ab3c235ce3b87e5711d7e427c8f3048ee">motors.h</a></li>
-<li>state_check_Turret()&#160;:&#160;<a class="el" href="motors_8cpp.html#ab9096f1bf8ccd46d92365594901a96a8">motors.cpp</a>, <a class="el" href="motors_8h.html#a687d71c466b0b68e43cd1eec7bd46531">motors.h</a></li>
-<li>task_barrel()&#160;:&#160;<a class="el" href="motors_8cpp.html#a66a6fc13a541e01064c255165b5a1f9b">motors.cpp</a>, <a class="el" href="motors_8h.html#a66a6fc13a541e01064c255165b5a1f9b">motors.h</a></li>
-<li>task_bluetooth()&#160;:&#160;<a class="el" href="bluetooth_8h.html#a13e9ae9525140b4b8ca18ac179fe983f">bluetooth.h</a></li>
-<li>task_movement()&#160;:&#160;<a class="el" href="motors_8cpp.html#a925ec0c1b0a736e565401339eee1c05a">motors.cpp</a>, <a class="el" href="motors_8h.html#a925ec0c1b0a736e565401339eee1c05a">motors.h</a></li>
-<li>task_receiver()&#160;:&#160;<a class="el" href="_i_r_8cpp.html#adb4f977bb83c3513c9a3115aa4d3f2e5">IR.cpp</a>, <a class="el" href="_i_r_8h.html#adb4f977bb83c3513c9a3115aa4d3f2e5">IR.h</a></li>
-<li>task_transmitter()&#160;:&#160;<a class="el" href="_i_r_8cpp.html#adaae0471b21b3b90ea804b0f2f0f59be">IR.cpp</a>, <a class="el" href="_i_r_8h.html#adaae0471b21b3b90ea804b0f2f0f59be">IR.h</a></li>
-<li>task_turret()&#160;:&#160;<a class="el" href="motors_8cpp.html#a7f712f3ef906ba6b3b485e163c51e256">motors.cpp</a>, <a class="el" href="motors_8h.html#a7f712f3ef906ba6b3b485e163c51e256">motors.h</a></li>
-<li>verify_signal()&#160;:&#160;<a class="el" href="_i_r_8cpp.html#a817d4fd18b716179e552f7d80fb089b1">IR.cpp</a>, <a class="el" href="_i_r_8h.html#a817d4fd18b716179e552f7d80fb089b1">IR.h</a></li>
-</ul>
-</div><!-- contents -->
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment">/*--------------------------------INCLUDE----------------------------------- */</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &lt;Arduino.h&gt;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &lt;PrintStream.h&gt;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &lt;taskshare.h&gt;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment">/*-----------------SHARED VARIABLES DEFINITIONS-------------------------- */</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keyword">extern</span> Share&lt;uint16_t&gt; movement;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="keyword">extern</span> Share&lt;bool&gt; fire;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keyword">extern</span> Share&lt;uint16_t&gt; angle_barrel;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keyword">extern</span> Share&lt;uint16_t&gt; angle_turret;</div>
+</div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0

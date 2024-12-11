@@ -96,26 +96,103 @@ $(function(){ initResizable(false); });
 
 <p>File for DC and Servo Motors functions used for Tank project.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="motors_8h_source.html">motors.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;main.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="motors_8h_source.html">motors.h</a>&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a925ec0c1b0a736e565401339eee1c05a" id="r_a925ec0c1b0a736e565401339eee1c05a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a925ec0c1b0a736e565401339eee1c05a">task_movement</a> (void *p_param)</td></tr>
-<tr class="memdesc:a925ec0c1b0a736e565401339eee1c05a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Task outputs a 250 Hz SquareWave on Pin 12.  <br /></td></tr>
+<tr class="memdesc:a925ec0c1b0a736e565401339eee1c05a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Task controls 2D motion of the Tank.  <br /></td></tr>
 <tr class="separator:a925ec0c1b0a736e565401339eee1c05a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a66a6fc13a541e01064c255165b5a1f9b" id="r_a66a6fc13a541e01064c255165b5a1f9b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a66a6fc13a541e01064c255165b5a1f9b">task_barrel</a> (void *p_param)</td></tr>
-<tr class="memdesc:a66a6fc13a541e01064c255165b5a1f9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Task outputs a 250 Hz SquareWave on Pin 12.  <br /></td></tr>
+<tr class="memdesc:a66a6fc13a541e01064c255165b5a1f9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Task controls the Tank's Barrel.  <br /></td></tr>
 <tr class="separator:a66a6fc13a541e01064c255165b5a1f9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7f712f3ef906ba6b3b485e163c51e256" id="r_a7f712f3ef906ba6b3b485e163c51e256"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7f712f3ef906ba6b3b485e163c51e256">task_turret</a> (void *p_param)</td></tr>
-<tr class="memdesc:a7f712f3ef906ba6b3b485e163c51e256"><td class="mdescLeft">&#160;</td><td class="mdescRight">Task outputs a 250 Hz SquareWave on Pin 12.  <br /></td></tr>
+<tr class="memdesc:a7f712f3ef906ba6b3b485e163c51e256"><td class="mdescLeft">&#160;</td><td class="mdescRight">Task controls the Tank's Turret.  <br /></td></tr>
 <tr class="separator:a7f712f3ef906ba6b3b485e163c51e256"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aceba899c65be445423c45b7fd4101243" id="r_aceba899c65be445423c45b7fd4101243"><td class="memItemLeft" align="right" valign="top">state_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aceba899c65be445423c45b7fd4101243">state_check_2D</a> ()</td></tr>
+<tr class="memdesc:aceba899c65be445423c45b7fd4101243"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function returns the state for the movement motors.  <br /></td></tr>
+<tr class="separator:aceba899c65be445423c45b7fd4101243"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9096f1bf8ccd46d92365594901a96a8" id="r_ab9096f1bf8ccd46d92365594901a96a8"><td class="memItemLeft" align="right" valign="top">state_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab9096f1bf8ccd46d92365594901a96a8">state_check_Turret</a> ()</td></tr>
+<tr class="memdesc:ab9096f1bf8ccd46d92365594901a96a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function returns the state for the turret motor.  <br /></td></tr>
+<tr class="separator:ab9096f1bf8ccd46d92365594901a96a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ddde06ccb889e8b06f306855f5c0e6f" id="r_a6ddde06ccb889e8b06f306855f5c0e6f"><td class="memItemLeft" align="right" valign="top">state_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6ddde06ccb889e8b06f306855f5c0e6f">state_check_Barrel</a> ()</td></tr>
+<tr class="memdesc:a6ddde06ccb889e8b06f306855f5c0e6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function returns the state for the barrel motors.  <br /></td></tr>
+<tr class="separator:a6ddde06ccb889e8b06f306855f5c0e6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>File for DC and Servo Motors functions used for Tank project. </p>
 <p>Copyright (C) 2024 by Tiny Tank Titans</p>
 <dl class="section author"><dt>Authors</dt><dd>Edgar Mora, Bryan Carrillo, Kerr Allan </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>December/10/2024  </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>December/10/2024 </dd></dl>
+<p>This file contains all the fuctions related to the motors used in the tank project. Motors for this project are used to move the tank, its barrel, and its turret. </p>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a id="aceba899c65be445423c45b7fd4101243" name="aceba899c65be445423c45b7fd4101243"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aceba899c65be445423c45b7fd4101243">&#9670;&#160;</a></span>state_check_2D()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">state_type state_check_2D </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This function returns the state for the movement motors. </p>
+<p>This function reads the current value of the share variable "movement" and returns the corresponding state value. This is used for the movement FSM state variable.</p>
+<dl class="section return"><dt>Returns</dt><dd>The state variable for movement FSM <br  />
+ </dd></dl>
+
+</div>
+</div>
+<a id="a6ddde06ccb889e8b06f306855f5c0e6f" name="a6ddde06ccb889e8b06f306855f5c0e6f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ddde06ccb889e8b06f306855f5c0e6f">&#9670;&#160;</a></span>state_check_Barrel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">state_type state_check_Barrel </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This function returns the state for the barrel motors. </p>
+<p>This function reads the current value of the share variable "angle_barrel" and returns the corresponding state value. This is used for barrel FSM state variable.</p>
+<dl class="section return"><dt>Returns</dt><dd>The state variable for barrel FSM <br  />
+ </dd></dl>
+
+</div>
+</div>
+<a id="ab9096f1bf8ccd46d92365594901a96a8" name="ab9096f1bf8ccd46d92365594901a96a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab9096f1bf8ccd46d92365594901a96a8">&#9670;&#160;</a></span>state_check_Turret()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">state_type state_check_Turret </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This function returns the state for the turret motor. </p>
+<p>This function reads the current value of the share variable "angle_turret" and returns the corresponding state value. This is used for turret FSM state variable.</p>
+<dl class="section return"><dt>Returns</dt><dd>The state variable for turret FSM <br  />
+ </dd></dl>
+
+</div>
+</div>
 <a id="a66a6fc13a541e01064c255165b5a1f9b" name="a66a6fc13a541e01064c255165b5a1f9b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a66a6fc13a541e01064c255165b5a1f9b">&#9670;&#160;</a></span>task_barrel()</h2>
 
@@ -131,8 +208,9 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Task outputs a 250 Hz SquareWave on Pin 12. </p>
-<p>This task outputs a 250 Hz, 50% Duty Cycle on GPIO 12 of ESP32 Microcontroller. Square wave will be generated iff the inter-task shared variable "hide" is False; otherwise, if hide is true, the square wave won’t be shown, and the pin will sit at logic zero. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Task controls the Tank's Barrel. </p>
+<p>This task runs a FSM which controls the Barrel of the tank. There are 3 possible states: Idle, Up, and Down. The state depends on the data sent via bluetooth.</p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">p_params</td><td>A pointer to parameters passed to this task. This pointer is ignored; it should be set to <code>NULL</code> in the call to <code>xTaskCreate()</code> which starts this task </td></tr>
   </table>
@@ -156,8 +234,9 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Task outputs a 250 Hz SquareWave on Pin 12. </p>
-<p>This task outputs a 250 Hz, 50% Duty Cycle on GPIO 12 of ESP32 Microcontroller. Square wave will be generated iff the inter-task shared variable "hide" is False; otherwise, if hide is true, the square wave won’t be shown, and the pin will sit at logic zero. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Task controls 2D motion of the Tank. </p>
+<p>This task runs a FSM which controls the 2D motion of the tank. There are 5 possible states: Idle, Forward, Backwards, Left, Right. The state depends on the data sent via bluetooth.</p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">p_params</td><td>A pointer to parameters passed to this task. This pointer is ignored; it should be set to <code>NULL</code> in the call to <code>xTaskCreate()</code> which starts this task </td></tr>
   </table>
@@ -181,8 +260,9 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Task outputs a 250 Hz SquareWave on Pin 12. </p>
-<p>This task outputs a 250 Hz, 50% Duty Cycle on GPIO 12 of ESP32 Microcontroller. Square wave will be generated iff the inter-task shared variable "hide" is False; otherwise, if hide is true, the square wave won’t be shown, and the pin will sit at logic zero. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Task controls the Tank's Turret. </p>
+<p>This task runs a FSM which controls the Turret of the tank. There are 3 possible states: Idle, Clockwise (CW), and Counter-Clockwise (CCW). The state depends on the data sent via bluetooth.</p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">p_params</td><td>A pointer to parameters passed to this task. This pointer is ignored; it should be set to <code>NULL</code> in the call to <code>xTaskCreate()</code> which starts this task </td></tr>
   </table>

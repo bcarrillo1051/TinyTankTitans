@@ -6,6 +6,7 @@ File for DC and Servo Motors definitions used for Tank project.
 
 
 {\ttfamily \#include $<$Arduino.\+h$>$}\newline
+{\ttfamily \#include "{}main.\+h"{}}\newline
 {\ttfamily \#include $<$ESP32\+\_\+\+Servo.\+h$>$}\newline
 \doxysubsubsection*{Macros}
 \begin{DoxyCompactItemize}
@@ -35,10 +36,16 @@ File for DC and Servo Motors definitions used for Tank project.
 \#define {\bfseries PWM\+\_\+\+STOP}~0
 \item 
 \Hypertarget{motors_8h_aee52a5c503c3859a83536b69d824e971}\label{motors_8h_aee52a5c503c3859a83536b69d824e971} 
-\#define {\bfseries DELAY\+\_\+M}~2500
+\#define {\bfseries DELAY\+\_\+M}~100
 \item 
-\Hypertarget{motors_8h_a77a2f86c61e7b77697571c7d13609465}\label{motors_8h_a77a2f86c61e7b77697571c7d13609465} 
-\#define {\bfseries DELAY\+\_\+S}~100
+\Hypertarget{motors_8h_af3c82099d63a2d91d68bd62d954059c7}\label{motors_8h_af3c82099d63a2d91d68bd62d954059c7} 
+\#define {\bfseries MAX\+\_\+\+ANGLE}~180
+\item 
+\Hypertarget{motors_8h_af5cc136dbc86df89de56c3aa421c12ee}\label{motors_8h_af5cc136dbc86df89de56c3aa421c12ee} 
+\#define {\bfseries MIN\+\_\+\+ANGLE}~0
+\item 
+\Hypertarget{motors_8h_afe56aa8ea978926b735c1efbe7151989}\label{motors_8h_afe56aa8ea978926b735c1efbe7151989} 
+\#define {\bfseries ANGLE\+\_\+\+INCREMENT}~5
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Enumerations}
 \begin{DoxyCompactItemize}
@@ -62,11 +69,17 @@ enum {\bfseries state\+\_\+type} \{ \newline
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{motors_8h_a925ec0c1b0a736e565401339eee1c05a}{task\+\_\+movement}} (void \texorpdfstring{$\ast$}{*}p\+\_\+param)
-\begin{DoxyCompactList}\small\item\em Task outputs a 250 Hz Square\+Wave on Pin 12. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Task controls 2D motion of the Tank. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{motors_8h_a66a6fc13a541e01064c255165b5a1f9b}{task\+\_\+barrel}} (void \texorpdfstring{$\ast$}{*}p\+\_\+param)
-\begin{DoxyCompactList}\small\item\em Task outputs a 250 Hz Square\+Wave on Pin 12. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Task controls the Tank\textquotesingle{}s Barrel. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{motors_8h_a7f712f3ef906ba6b3b485e163c51e256}{task\+\_\+turret}} (void \texorpdfstring{$\ast$}{*}p\+\_\+param)
-\begin{DoxyCompactList}\small\item\em Task outputs a 250 Hz Square\+Wave on Pin 12. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Task controls the Tank\textquotesingle{}s Turret. \end{DoxyCompactList}\item 
+state\+\_\+type \mbox{\hyperlink{motors_8h_a9ac22c6264e5ff41ce70fa760ca57ddd}{state\+\_\+check\+\_\+2D}} (void)
+\begin{DoxyCompactList}\small\item\em This function returns the state for the movement motors. \end{DoxyCompactList}\item 
+state\+\_\+type \mbox{\hyperlink{motors_8h_a687d71c466b0b68e43cd1eec7bd46531}{state\+\_\+check\+\_\+\+Turret}} (void)
+\begin{DoxyCompactList}\small\item\em This function returns the state for the turret motor. \end{DoxyCompactList}\item 
+state\+\_\+type \mbox{\hyperlink{motors_8h_ab3c235ce3b87e5711d7e427c8f3048ee}{state\+\_\+check\+\_\+\+Barrel}} (void)
+\begin{DoxyCompactList}\small\item\em This function returns the state for the barrel motors. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -80,9 +93,57 @@ Edgar Mora, Bryan Carrillo, Kerr Allan
 \begin{DoxyDate}{Date}
 December/10/2024 
 \end{DoxyDate}
-This file is the main 
+This file defines the constants, function prototypes, and include files used for the Motors used in the Tanks project. 
 
 \doxysubsection{Function Documentation}
+\Hypertarget{motors_8h_a9ac22c6264e5ff41ce70fa760ca57ddd}\index{motors.h@{motors.h}!state\_check\_2D@{state\_check\_2D}}
+\index{state\_check\_2D@{state\_check\_2D}!motors.h@{motors.h}}
+\doxysubsubsection{\texorpdfstring{state\_check\_2D()}{state\_check\_2D()}}
+{\footnotesize\ttfamily \label{motors_8h_a9ac22c6264e5ff41ce70fa760ca57ddd} 
+state\+\_\+type state\+\_\+check\+\_\+2D (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+This function returns the state for the movement motors. 
+
+This function reads the current value of the share variable "{}movement"{} and returns the corresponding state value. This is used for the movement FSM state variable.
+
+\begin{DoxyReturn}{Returns}
+The state variable for movement FSM ~\newline
+ 
+\end{DoxyReturn}
+\Hypertarget{motors_8h_ab3c235ce3b87e5711d7e427c8f3048ee}\index{motors.h@{motors.h}!state\_check\_Barrel@{state\_check\_Barrel}}
+\index{state\_check\_Barrel@{state\_check\_Barrel}!motors.h@{motors.h}}
+\doxysubsubsection{\texorpdfstring{state\_check\_Barrel()}{state\_check\_Barrel()}}
+{\footnotesize\ttfamily \label{motors_8h_ab3c235ce3b87e5711d7e427c8f3048ee} 
+state\+\_\+type state\+\_\+check\+\_\+\+Barrel (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+This function returns the state for the barrel motors. 
+
+This function reads the current value of the share variable "{}angle\+\_\+barrel"{} and returns the corresponding state value. This is used for barrel FSM state variable.
+
+\begin{DoxyReturn}{Returns}
+The state variable for barrel FSM ~\newline
+ 
+\end{DoxyReturn}
+\Hypertarget{motors_8h_a687d71c466b0b68e43cd1eec7bd46531}\index{motors.h@{motors.h}!state\_check\_Turret@{state\_check\_Turret}}
+\index{state\_check\_Turret@{state\_check\_Turret}!motors.h@{motors.h}}
+\doxysubsubsection{\texorpdfstring{state\_check\_Turret()}{state\_check\_Turret()}}
+{\footnotesize\ttfamily \label{motors_8h_a687d71c466b0b68e43cd1eec7bd46531} 
+state\+\_\+type state\+\_\+check\+\_\+\+Turret (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+This function returns the state for the turret motor. 
+
+This function reads the current value of the share variable "{}angle\+\_\+turret"{} and returns the corresponding state value. This is used for turret FSM state variable.
+
+\begin{DoxyReturn}{Returns}
+The state variable for turret FSM ~\newline
+ 
+\end{DoxyReturn}
 \Hypertarget{motors_8h_a66a6fc13a541e01064c255165b5a1f9b}\index{motors.h@{motors.h}!task\_barrel@{task\_barrel}}
 \index{task\_barrel@{task\_barrel}!motors.h@{motors.h}}
 \doxysubsubsection{\texorpdfstring{task\_barrel()}{task\_barrel()}}
@@ -91,9 +152,11 @@ void task\+\_\+barrel (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast
 
 
 
-Task outputs a 250 Hz Square\+Wave on Pin 12. 
+Task controls the Tank\textquotesingle{}s Barrel. 
 
-This task outputs a 250 Hz, 50\% Duty Cycle on GPIO 12 of ESP32 Microcontroller. Square wave will be generated iff the inter-\/task shared variable "{}hide"{} is False; otherwise, if hide is true, the square wave won’t be shown, and the pin will sit at logic zero. 
+This task runs a FSM which controls the Barrel of the tank. There are 3 possible states\+: Idle, Up, and Down. The state depends on the data sent via bluetooth.
+
+
 \begin{DoxyParams}{Parameters}
 {\em p\+\_\+params} & A pointer to parameters passed to this task. This pointer is ignored; it should be set to {\ttfamily NULL} in the call to {\ttfamily x\+Task\+Create()} which starts this task \\
 \hline
@@ -106,9 +169,11 @@ void task\+\_\+movement (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\a
 
 
 
-Task outputs a 250 Hz Square\+Wave on Pin 12. 
+Task controls 2D motion of the Tank. 
 
-This task outputs a 250 Hz, 50\% Duty Cycle on GPIO 12 of ESP32 Microcontroller. Square wave will be generated iff the inter-\/task shared variable "{}hide"{} is False; otherwise, if hide is true, the square wave won’t be shown, and the pin will sit at logic zero. 
+This task runs a FSM which controls the 2D motion of the tank. There are 5 possible states\+: Idle, Forward, Backwards, Left, Right. The state depends on the data sent via bluetooth.
+
+
 \begin{DoxyParams}{Parameters}
 {\em p\+\_\+params} & A pointer to parameters passed to this task. This pointer is ignored; it should be set to {\ttfamily NULL} in the call to {\ttfamily x\+Task\+Create()} which starts this task \\
 \hline
@@ -121,9 +186,11 @@ void task\+\_\+turret (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast
 
 
 
-Task outputs a 250 Hz Square\+Wave on Pin 12. 
+Task controls the Tank\textquotesingle{}s Turret. 
 
-This task outputs a 250 Hz, 50\% Duty Cycle on GPIO 12 of ESP32 Microcontroller. Square wave will be generated iff the inter-\/task shared variable "{}hide"{} is False; otherwise, if hide is true, the square wave won’t be shown, and the pin will sit at logic zero. 
+This task runs a FSM which controls the Turret of the tank. There are 3 possible states\+: Idle, Clockwise (CW), and Counter-\/\+Clockwise (CCW). The state depends on the data sent via bluetooth.
+
+
 \begin{DoxyParams}{Parameters}
 {\em p\+\_\+params} & A pointer to parameters passed to this task. This pointer is ignored; it should be set to {\ttfamily NULL} in the call to {\ttfamily x\+Task\+Create()} which starts this task \\
 \hline

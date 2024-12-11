@@ -88,21 +88,146 @@ $(function(){ initResizable(false); });
 </div><!-- top -->
 <div id="doc-content">
 <div class="header">
+  <div class="summary">
+<a href="#define-members">Macros</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">bluetooth.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
 <p>File for bluetooth definitions used for Tank project.  
 <a href="#details">More...</a></p>
-
+<div class="textblock"><code>#include &lt;Arduino.h&gt;</code><br />
+<code>#include &quot;BluetoothSerial.h&quot;</code><br />
+</div>
 <p><a href="bluetooth_8h_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:adcc346c09193dcdaa49d7b20f0454ae7" id="r_adcc346c09193dcdaa49d7b20f0454ae7"><td class="memItemLeft" align="right" valign="top"><a id="adcc346c09193dcdaa49d7b20f0454ae7" name="adcc346c09193dcdaa49d7b20f0454ae7"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>LEFT_LOWER_BOUND_X</b>&#160;&#160;&#160;4</td></tr>
+<tr class="separator:adcc346c09193dcdaa49d7b20f0454ae7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1a2a6871fc4232a20d404bffbf35f68" id="r_af1a2a6871fc4232a20d404bffbf35f68"><td class="memItemLeft" align="right" valign="top"><a id="af1a2a6871fc4232a20d404bffbf35f68" name="af1a2a6871fc4232a20d404bffbf35f68"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>LEFT_UPPER_BOUND_X</b>&#160;&#160;&#160;34</td></tr>
+<tr class="separator:af1a2a6871fc4232a20d404bffbf35f68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a1f3645c7985a24ccebab8686bb8c28" id="r_a4a1f3645c7985a24ccebab8686bb8c28"><td class="memItemLeft" align="right" valign="top"><a id="a4a1f3645c7985a24ccebab8686bb8c28" name="a4a1f3645c7985a24ccebab8686bb8c28"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>RIGHT_LOWER_BOUND_X</b>&#160;&#160;&#160;74</td></tr>
+<tr class="separator:a4a1f3645c7985a24ccebab8686bb8c28"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9b7733b87743713e9e16d3cd2b32d0c" id="r_ac9b7733b87743713e9e16d3cd2b32d0c"><td class="memItemLeft" align="right" valign="top"><a id="ac9b7733b87743713e9e16d3cd2b32d0c" name="ac9b7733b87743713e9e16d3cd2b32d0c"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>RIGHT_UPPER_BOUND_X</b>&#160;&#160;&#160;104</td></tr>
+<tr class="separator:ac9b7733b87743713e9e16d3cd2b32d0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af484211e60db1e373292fdd630fa6307" id="r_af484211e60db1e373292fdd630fa6307"><td class="memItemLeft" align="right" valign="top"><a id="af484211e60db1e373292fdd630fa6307" name="af484211e60db1e373292fdd630fa6307"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>UP_DOWN_LOWER_BOUND_X</b>&#160;&#160;&#160;34</td></tr>
+<tr class="separator:af484211e60db1e373292fdd630fa6307"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acaa88e3581a4776d057c641962e55179" id="r_acaa88e3581a4776d057c641962e55179"><td class="memItemLeft" align="right" valign="top"><a id="acaa88e3581a4776d057c641962e55179" name="acaa88e3581a4776d057c641962e55179"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>UP_DOWN_UPPER_BOUND_X</b>&#160;&#160;&#160;74</td></tr>
+<tr class="separator:acaa88e3581a4776d057c641962e55179"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a58d959804c0e10cb8c8dac2ce6f0903f" id="r_a58d959804c0e10cb8c8dac2ce6f0903f"><td class="memItemLeft" align="right" valign="top"><a id="a58d959804c0e10cb8c8dac2ce6f0903f" name="a58d959804c0e10cb8c8dac2ce6f0903f"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>LEFT_RIGHT_LOWER_BOUND_Y</b>&#160;&#160;&#160;34</td></tr>
+<tr class="separator:a58d959804c0e10cb8c8dac2ce6f0903f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e4dbd8320330c86f60b2be93efb78a7" id="r_a3e4dbd8320330c86f60b2be93efb78a7"><td class="memItemLeft" align="right" valign="top"><a id="a3e4dbd8320330c86f60b2be93efb78a7" name="a3e4dbd8320330c86f60b2be93efb78a7"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>LEFT_RIGHT_UPPER_BOUND_Y</b>&#160;&#160;&#160;74</td></tr>
+<tr class="separator:a3e4dbd8320330c86f60b2be93efb78a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1faaf5529440a457fb716a5b5a0e3c7f" id="r_a1faaf5529440a457fb716a5b5a0e3c7f"><td class="memItemLeft" align="right" valign="top"><a id="a1faaf5529440a457fb716a5b5a0e3c7f" name="a1faaf5529440a457fb716a5b5a0e3c7f"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>DOWN_LOWER_BOUND_Y</b>&#160;&#160;&#160;4</td></tr>
+<tr class="separator:a1faaf5529440a457fb716a5b5a0e3c7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b9d02fc58bd6cf4a7dcecc79368736b" id="r_a7b9d02fc58bd6cf4a7dcecc79368736b"><td class="memItemLeft" align="right" valign="top"><a id="a7b9d02fc58bd6cf4a7dcecc79368736b" name="a7b9d02fc58bd6cf4a7dcecc79368736b"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>DOWN_UPPER_BOUND_Y</b>&#160;&#160;&#160;34</td></tr>
+<tr class="separator:a7b9d02fc58bd6cf4a7dcecc79368736b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93e0575f1069e91c9361a4150e13b42f" id="r_a93e0575f1069e91c9361a4150e13b42f"><td class="memItemLeft" align="right" valign="top"><a id="a93e0575f1069e91c9361a4150e13b42f" name="a93e0575f1069e91c9361a4150e13b42f"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>UP_LOWER_BOUND_Y</b>&#160;&#160;&#160;74</td></tr>
+<tr class="separator:a93e0575f1069e91c9361a4150e13b42f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a82de91ac3eb8e25015447c1b54a9fd20" id="r_a82de91ac3eb8e25015447c1b54a9fd20"><td class="memItemLeft" align="right" valign="top"><a id="a82de91ac3eb8e25015447c1b54a9fd20" name="a82de91ac3eb8e25015447c1b54a9fd20"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>UP_UPPER_BOUND_Y</b>&#160;&#160;&#160;104</td></tr>
+<tr class="separator:a82de91ac3eb8e25015447c1b54a9fd20"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a824fea1f256659e11e6cd8c82cb13338" id="r_a824fea1f256659e11e6cd8c82cb13338"><td class="memItemLeft" align="right" valign="top"><a id="a824fea1f256659e11e6cd8c82cb13338" name="a824fea1f256659e11e6cd8c82cb13338"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>CENTER</b>&#160;&#160;&#160;0</td></tr>
+<tr class="separator:a824fea1f256659e11e6cd8c82cb13338"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1965eaca47dbf3f87acdafc2208f04eb" id="r_a1965eaca47dbf3f87acdafc2208f04eb"><td class="memItemLeft" align="right" valign="top"><a id="a1965eaca47dbf3f87acdafc2208f04eb" name="a1965eaca47dbf3f87acdafc2208f04eb"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>UP</b>&#160;&#160;&#160;1</td></tr>
+<tr class="separator:a1965eaca47dbf3f87acdafc2208f04eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4193cd1c8c2e6ebd0e056fa2364a663f" id="r_a4193cd1c8c2e6ebd0e056fa2364a663f"><td class="memItemLeft" align="right" valign="top"><a id="a4193cd1c8c2e6ebd0e056fa2364a663f" name="a4193cd1c8c2e6ebd0e056fa2364a663f"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>DOWN</b>&#160;&#160;&#160;2</td></tr>
+<tr class="separator:a4193cd1c8c2e6ebd0e056fa2364a663f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a437ef08681e7210d6678427030446a54" id="r_a437ef08681e7210d6678427030446a54"><td class="memItemLeft" align="right" valign="top"><a id="a437ef08681e7210d6678427030446a54" name="a437ef08681e7210d6678427030446a54"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>LEFT</b>&#160;&#160;&#160;3</td></tr>
+<tr class="separator:a437ef08681e7210d6678427030446a54"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a80fb826a684cf3f0d306b22aa100ddac" id="r_a80fb826a684cf3f0d306b22aa100ddac"><td class="memItemLeft" align="right" valign="top"><a id="a80fb826a684cf3f0d306b22aa100ddac" name="a80fb826a684cf3f0d306b22aa100ddac"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>RIGHT</b>&#160;&#160;&#160;4</td></tr>
+<tr class="separator:a80fb826a684cf3f0d306b22aa100ddac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af153bd6474d1f6fc15015a3f725414c2" id="r_af153bd6474d1f6fc15015a3f725414c2"><td class="memItemLeft" align="right" valign="top"><a id="af153bd6474d1f6fc15015a3f725414c2" name="af153bd6474d1f6fc15015a3f725414c2"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>DIAGONAL</b>&#160;&#160;&#160;5</td></tr>
+<tr class="separator:af153bd6474d1f6fc15015a3f725414c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a9952cacbcd73405f438880db078c5d25" id="r_a9952cacbcd73405f438880db078c5d25"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9952cacbcd73405f438880db078c5d25">setup_SPP_Bluetooth</a> ()</td></tr>
+<tr class="memdesc:a9952cacbcd73405f438880db078c5d25"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that initializes ESP32 bluetooth capability.  <br /></td></tr>
+<tr class="separator:a9952cacbcd73405f438880db078c5d25"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13e9ae9525140b4b8ca18ac179fe983f" id="r_a13e9ae9525140b4b8ca18ac179fe983f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a13e9ae9525140b4b8ca18ac179fe983f">task_bluetooth</a> (void *p_param)</td></tr>
+<tr class="memdesc:a13e9ae9525140b4b8ca18ac179fe983f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Task that set up bluetooth capability for Tank Project.  <br /></td></tr>
+<tr class="separator:a13e9ae9525140b4b8ca18ac179fe983f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>File for bluetooth definitions used for Tank project. </p>
 <p>Copyright (C) 2024 by Tiny Tank Titans</p>
 <dl class="section author"><dt>Authors</dt><dd>Edgar Mora, Bryan Carrillo, Kerr Allan </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>December/10/2024 </dd></dl>
 <p>This file is the main </p>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Function Documentation</h2>
+<a id="a9952cacbcd73405f438880db078c5d25" name="a9952cacbcd73405f438880db078c5d25"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9952cacbcd73405f438880db078c5d25">&#9670;&#160;</a></span>setup_SPP_Bluetooth()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setup_SPP_Bluetooth </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Function that initializes ESP32 bluetooth capability. </p>
+<p>This function initializes the bluetooth capability of the ESP32 so that it can be a selectable device</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p_params</td><td>A pointer to parameters passed to this task. This pointer is ignored; it should be set to <code>NULL</code> in the call to <code>xTaskCreate()</code> which starts this task </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a13e9ae9525140b4b8ca18ac179fe983f" name="a13e9ae9525140b4b8ca18ac179fe983f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13e9ae9525140b4b8ca18ac179fe983f">&#9670;&#160;</a></span>task_bluetooth()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void task_bluetooth </td>
+          <td>(</td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>p_param</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Task that set up bluetooth capability for Tank Project. </p>
+<p>This task takes analog joystick data, as well as button data and maps it to a D-pad range</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p_params</td><td>A pointer to parameters passed to this task. This pointer is ignored; it should be set to <code>NULL</code> in the call to <code>xTaskCreate()</code> which starts this task </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0

@@ -96,16 +96,30 @@ $(function(){ initResizable(false); });
 
 <p>File for fully operating Bluetooth-Controlled Tank.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="motors_8h_source.html">motors.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;main.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="motors_8h_source.html">motors.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_i_r_8h_source.html">IR.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="bluetooth_8h_source.html">bluetooth.h</a>&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a4fc01d736fe50cf5b977f755b675f11d" id="r_a4fc01d736fe50cf5b977f755b675f11d"><td class="memItemLeft" align="right" valign="top"><a id="a4fc01d736fe50cf5b977f755b675f11d" name="a4fc01d736fe50cf5b977f755b675f11d"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setup</b> ()</td></tr>
+<tr class="memitem:abea2f32b45b8c8bad26838cc7fdfd9a1" id="r_abea2f32b45b8c8bad26838cc7fdfd9a1"><td class="memItemLeft" align="right" valign="top"><a id="abea2f32b45b8c8bad26838cc7fdfd9a1" name="abea2f32b45b8c8bad26838cc7fdfd9a1"></a>
+Share&lt; uint16_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>movement</b> (&quot;Tank 2D Movement&quot;)</td></tr>
+<tr class="separator:abea2f32b45b8c8bad26838cc7fdfd9a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a34bfe80cc9f6a7ed681d2bc3382279" id="r_a0a34bfe80cc9f6a7ed681d2bc3382279"><td class="memItemLeft" align="right" valign="top"><a id="a0a34bfe80cc9f6a7ed681d2bc3382279" name="a0a34bfe80cc9f6a7ed681d2bc3382279"></a>
+Share&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>fire</b> (&quot;Tank Firing&quot;)</td></tr>
+<tr class="separator:a0a34bfe80cc9f6a7ed681d2bc3382279"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a89522aa57ecac5521759701e1d4edd0d" id="r_a89522aa57ecac5521759701e1d4edd0d"><td class="memItemLeft" align="right" valign="top"><a id="a89522aa57ecac5521759701e1d4edd0d" name="a89522aa57ecac5521759701e1d4edd0d"></a>
+Share&lt; uint16_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>angle_turret</b> (&quot;Tank Turret Movement&quot;)</td></tr>
+<tr class="separator:a89522aa57ecac5521759701e1d4edd0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab149da7e0e931d6ff1b603b634785e97" id="r_ab149da7e0e931d6ff1b603b634785e97"><td class="memItemLeft" align="right" valign="top"><a id="ab149da7e0e931d6ff1b603b634785e97" name="ab149da7e0e931d6ff1b603b634785e97"></a>
+Share&lt; uint16_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>angle_barrel</b> (&quot;Tank Barrel Movement&quot;)</td></tr>
+<tr class="separator:ab149da7e0e931d6ff1b603b634785e97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4fc01d736fe50cf5b977f755b675f11d" id="r_a4fc01d736fe50cf5b977f755b675f11d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4fc01d736fe50cf5b977f755b675f11d">setup</a> ()</td></tr>
+<tr class="memdesc:a4fc01d736fe50cf5b977f755b675f11d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes all the GPIOS, variables and tasks.  <br /></td></tr>
 <tr class="separator:a4fc01d736fe50cf5b977f755b675f11d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afe461d27b9c48d5921c00d521181f12f" id="r_afe461d27b9c48d5921c00d521181f12f"><td class="memItemLeft" align="right" valign="top"><a id="afe461d27b9c48d5921c00d521181f12f" name="afe461d27b9c48d5921c00d521181f12f"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>loop</b> ()</td></tr>
+<tr class="memitem:afe461d27b9c48d5921c00d521181f12f" id="r_afe461d27b9c48d5921c00d521181f12f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afe461d27b9c48d5921c00d521181f12f">loop</a> ()</td></tr>
+<tr class="memdesc:afe461d27b9c48d5921c00d521181f12f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that runs forever.  <br /></td></tr>
 <tr class="separator:afe461d27b9c48d5921c00d521181f12f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -113,8 +127,49 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>loop</b> ()</td></tr>
 <p>Copyright (C) 2024 by Tiny Tank Titans</p>
 <dl class="section author"><dt>Authors</dt><dd>Edgar Mora, Bryan Carrillo, Kerr Allan </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>December/10/2024 </dd></dl>
-<p>This file is the main </p>
-</div></div><!-- contents -->
+<p>This file contains the main functions for the Tank Project. It contains the definition of shared variables used for bluetooth interaction with the tank. The setup and loop functions are also defined in here. </p>
+</div><h2 class="groupheader">Function Documentation</h2>
+<a id="afe461d27b9c48d5921c00d521181f12f" name="afe461d27b9c48d5921c00d521181f12f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe461d27b9c48d5921c00d521181f12f">&#9670;&#160;</a></span>loop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void loop </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Function that runs forever. </p>
+<p>This function executes in a loop indefinitely. </p>
+
+</div>
+</div>
+<a id="a4fc01d736fe50cf5b977f755b675f11d" name="a4fc01d736fe50cf5b977f755b675f11d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4fc01d736fe50cf5b977f755b675f11d">&#9670;&#160;</a></span>setup()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setup </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initializes all the GPIOS, variables and tasks. </p>
+<p>This function sets up all the GPIOS used for the tank as inputs/outputs. It also initializes the shared task variables, and the different tasks implemented. </p>
+
+</div>
+</div>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0

@@ -5,6 +5,72 @@
 File for bluetooth definitions used for Tank project.  
 
 
+{\ttfamily \#include $<$Arduino.\+h$>$}\newline
+{\ttfamily \#include "{}Bluetooth\+Serial.\+h"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{bluetooth_8h_adcc346c09193dcdaa49d7b20f0454ae7}\label{bluetooth_8h_adcc346c09193dcdaa49d7b20f0454ae7} 
+\#define {\bfseries LEFT\+\_\+\+LOWER\+\_\+\+BOUND\+\_\+X}~4
+\item 
+\Hypertarget{bluetooth_8h_af1a2a6871fc4232a20d404bffbf35f68}\label{bluetooth_8h_af1a2a6871fc4232a20d404bffbf35f68} 
+\#define {\bfseries LEFT\+\_\+\+UPPER\+\_\+\+BOUND\+\_\+X}~34
+\item 
+\Hypertarget{bluetooth_8h_a4a1f3645c7985a24ccebab8686bb8c28}\label{bluetooth_8h_a4a1f3645c7985a24ccebab8686bb8c28} 
+\#define {\bfseries RIGHT\+\_\+\+LOWER\+\_\+\+BOUND\+\_\+X}~74
+\item 
+\Hypertarget{bluetooth_8h_ac9b7733b87743713e9e16d3cd2b32d0c}\label{bluetooth_8h_ac9b7733b87743713e9e16d3cd2b32d0c} 
+\#define {\bfseries RIGHT\+\_\+\+UPPER\+\_\+\+BOUND\+\_\+X}~104
+\item 
+\Hypertarget{bluetooth_8h_af484211e60db1e373292fdd630fa6307}\label{bluetooth_8h_af484211e60db1e373292fdd630fa6307} 
+\#define {\bfseries UP\+\_\+\+DOWN\+\_\+\+LOWER\+\_\+\+BOUND\+\_\+X}~34
+\item 
+\Hypertarget{bluetooth_8h_acaa88e3581a4776d057c641962e55179}\label{bluetooth_8h_acaa88e3581a4776d057c641962e55179} 
+\#define {\bfseries UP\+\_\+\+DOWN\+\_\+\+UPPER\+\_\+\+BOUND\+\_\+X}~74
+\item 
+\Hypertarget{bluetooth_8h_a58d959804c0e10cb8c8dac2ce6f0903f}\label{bluetooth_8h_a58d959804c0e10cb8c8dac2ce6f0903f} 
+\#define {\bfseries LEFT\+\_\+\+RIGHT\+\_\+\+LOWER\+\_\+\+BOUND\+\_\+Y}~34
+\item 
+\Hypertarget{bluetooth_8h_a3e4dbd8320330c86f60b2be93efb78a7}\label{bluetooth_8h_a3e4dbd8320330c86f60b2be93efb78a7} 
+\#define {\bfseries LEFT\+\_\+\+RIGHT\+\_\+\+UPPER\+\_\+\+BOUND\+\_\+Y}~74
+\item 
+\Hypertarget{bluetooth_8h_a1faaf5529440a457fb716a5b5a0e3c7f}\label{bluetooth_8h_a1faaf5529440a457fb716a5b5a0e3c7f} 
+\#define {\bfseries DOWN\+\_\+\+LOWER\+\_\+\+BOUND\+\_\+Y}~4
+\item 
+\Hypertarget{bluetooth_8h_a7b9d02fc58bd6cf4a7dcecc79368736b}\label{bluetooth_8h_a7b9d02fc58bd6cf4a7dcecc79368736b} 
+\#define {\bfseries DOWN\+\_\+\+UPPER\+\_\+\+BOUND\+\_\+Y}~34
+\item 
+\Hypertarget{bluetooth_8h_a93e0575f1069e91c9361a4150e13b42f}\label{bluetooth_8h_a93e0575f1069e91c9361a4150e13b42f} 
+\#define {\bfseries UP\+\_\+\+LOWER\+\_\+\+BOUND\+\_\+Y}~74
+\item 
+\Hypertarget{bluetooth_8h_a82de91ac3eb8e25015447c1b54a9fd20}\label{bluetooth_8h_a82de91ac3eb8e25015447c1b54a9fd20} 
+\#define {\bfseries UP\+\_\+\+UPPER\+\_\+\+BOUND\+\_\+Y}~104
+\item 
+\Hypertarget{bluetooth_8h_a824fea1f256659e11e6cd8c82cb13338}\label{bluetooth_8h_a824fea1f256659e11e6cd8c82cb13338} 
+\#define {\bfseries CENTER}~0
+\item 
+\Hypertarget{bluetooth_8h_a1965eaca47dbf3f87acdafc2208f04eb}\label{bluetooth_8h_a1965eaca47dbf3f87acdafc2208f04eb} 
+\#define {\bfseries UP}~1
+\item 
+\Hypertarget{bluetooth_8h_a4193cd1c8c2e6ebd0e056fa2364a663f}\label{bluetooth_8h_a4193cd1c8c2e6ebd0e056fa2364a663f} 
+\#define {\bfseries DOWN}~2
+\item 
+\Hypertarget{bluetooth_8h_a437ef08681e7210d6678427030446a54}\label{bluetooth_8h_a437ef08681e7210d6678427030446a54} 
+\#define {\bfseries LEFT}~3
+\item 
+\Hypertarget{bluetooth_8h_a80fb826a684cf3f0d306b22aa100ddac}\label{bluetooth_8h_a80fb826a684cf3f0d306b22aa100ddac} 
+\#define {\bfseries RIGHT}~4
+\item 
+\Hypertarget{bluetooth_8h_af153bd6474d1f6fc15015a3f725414c2}\label{bluetooth_8h_af153bd6474d1f6fc15015a3f725414c2} 
+\#define {\bfseries DIAGONAL}~5
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{bluetooth_8h_a9952cacbcd73405f438880db078c5d25}{setup\+\_\+\+SPP\+\_\+\+Bluetooth}} ()
+\begin{DoxyCompactList}\small\item\em Function that initializes ESP32 bluetooth capability. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{bluetooth_8h_a13e9ae9525140b4b8ca18ac179fe983f}{task\+\_\+bluetooth}} (void \texorpdfstring{$\ast$}{*}p\+\_\+param)
+\begin{DoxyCompactList}\small\item\em Task that set up bluetooth capability for Tank Project. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -19,3 +85,39 @@ Edgar Mora, Bryan Carrillo, Kerr Allan
 December/10/2024 
 \end{DoxyDate}
 This file is the main 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{bluetooth_8h_a9952cacbcd73405f438880db078c5d25}\index{bluetooth.h@{bluetooth.h}!setup\_SPP\_Bluetooth@{setup\_SPP\_Bluetooth}}
+\index{setup\_SPP\_Bluetooth@{setup\_SPP\_Bluetooth}!bluetooth.h@{bluetooth.h}}
+\doxysubsubsection{\texorpdfstring{setup\_SPP\_Bluetooth()}{setup\_SPP\_Bluetooth()}}
+{\footnotesize\ttfamily \label{bluetooth_8h_a9952cacbcd73405f438880db078c5d25} 
+void setup\+\_\+\+SPP\+\_\+\+Bluetooth (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Function that initializes ESP32 bluetooth capability. 
+
+This function initializes the bluetooth capability of the ESP32 so that it can be a selectable device
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+params} & A pointer to parameters passed to this task. This pointer is ignored; it should be set to {\ttfamily NULL} in the call to {\ttfamily x\+Task\+Create()} which starts this task \\
+\hline
+\end{DoxyParams}
+\Hypertarget{bluetooth_8h_a13e9ae9525140b4b8ca18ac179fe983f}\index{bluetooth.h@{bluetooth.h}!task\_bluetooth@{task\_bluetooth}}
+\index{task\_bluetooth@{task\_bluetooth}!bluetooth.h@{bluetooth.h}}
+\doxysubsubsection{\texorpdfstring{task\_bluetooth()}{task\_bluetooth()}}
+{\footnotesize\ttfamily \label{bluetooth_8h_a13e9ae9525140b4b8ca18ac179fe983f} 
+void task\+\_\+bluetooth (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{p\+\_\+param}{}\end{DoxyParamCaption})}
+
+
+
+Task that set up bluetooth capability for Tank Project. 
+
+This task takes analog joystick data, as well as button data and maps it to a D-\/pad range
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+params} & A pointer to parameters passed to this task. This pointer is ignored; it should be set to {\ttfamily NULL} in the call to {\ttfamily x\+Task\+Create()} which starts this task \\
+\hline
+\end{DoxyParams}

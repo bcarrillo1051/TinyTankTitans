@@ -3,28 +3,29 @@
 \mbox{\hyperlink{_i_r_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ }
-\DoxyCodeLine{00011\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/INCLUDE-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
-\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <Arduino.h>}}
-\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <IRremoteESP8266.h>}}
-\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <IRsend.h>}}
-\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <IRrecv.h>}}
-\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <IRutils.h>}}
-\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <assert.h>}}
-\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <IRac.h>}}
-\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <IRtext.h>}}
-\DoxyCodeLine{00020\ }
-\DoxyCodeLine{00021\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/CONSTANT\ DEFINITIONS-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
-\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ IR\_RECEIVER\_PIN\ \ \ \ \ 21}}
-\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ IR\_TRANSMITTER\_PIN\ \ 22}}
-\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#define\ LASER\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 23}}
-\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#define\ LED\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 19}}
-\DoxyCodeLine{00026\ \textcolor{keyword}{const}\ uint16\_t\ kCaptureBufferSize\ =\ 1024;}
-\DoxyCodeLine{00027\ \textcolor{keyword}{const}\ uint8\_t\ kTimeout\ =\ 40;\ \ \textcolor{comment}{//\ Milli-\/Seconds}}
-\DoxyCodeLine{00028\ \textcolor{keyword}{const}\ uint32\_t\ data=\ 0x55555555;}
-\DoxyCodeLine{00029\ }
-\DoxyCodeLine{00030\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/FUNCTION\ DECLARATIONS-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
-\DoxyCodeLine{00031\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_i_r_8h_adb4f977bb83c3513c9a3115aa4d3f2e5}{task\_receiver}}(\textcolor{keywordtype}{void}*\ p\_param);}
-\DoxyCodeLine{00032\ \textcolor{keywordtype}{void}\ task\_transmitter(\textcolor{keywordtype}{void}*\ p\_param);}
-\DoxyCodeLine{00033\ \textcolor{keywordtype}{void}\ verify\_signal(uint32\_t\ signal\_Data);}
+\DoxyCodeLine{00012\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/INCLUDE-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <Arduino.h>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}main.h"{}}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <IRremoteESP8266.h>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <IRsend.h>}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <IRrecv.h>}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <IRutils.h>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <assert.h>}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <IRac.h>}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ <IRtext.h>}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/CONSTANT\ DEFINITIONS-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#define\ IR\_RECEIVER\_PIN\ \ \ \ \ 21}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#define\ IR\_TRANSMITTER\_PIN\ \ 22}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#define\ LASER\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 23}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#define\ LED\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 19}}
+\DoxyCodeLine{00028\ \textcolor{keyword}{const}\ uint16\_t\ kCaptureBufferSize\ =\ 1024;}
+\DoxyCodeLine{00029\ \textcolor{keyword}{const}\ uint8\_t\ kTimeout\ =\ 40;}
+\DoxyCodeLine{00030\ \textcolor{keyword}{const}\ uint32\_t\ data=\ 0x55555555;}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/FUNCTION\ DECLARATIONS-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{00033\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_i_r_8h_adb4f977bb83c3513c9a3115aa4d3f2e5}{task\_receiver}}(\textcolor{keywordtype}{void}*\ p\_param);}
+\DoxyCodeLine{00034\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_i_r_8h_adaae0471b21b3b90ea804b0f2f0f59be}{task\_transmitter}}(\textcolor{keywordtype}{void}*\ p\_param);}
+\DoxyCodeLine{00035\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_i_r_8h_a817d4fd18b716179e552f7d80fb089b1}{verify\_signal}}(uint32\_t\ signal\_Data);}
 
 \end{DoxyCode}

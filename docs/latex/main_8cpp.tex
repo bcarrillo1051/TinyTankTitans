@@ -5,17 +5,29 @@
 File for fully operating Bluetooth-\/\+Controlled Tank.  
 
 
+{\ttfamily \#include "{}main.\+h"{}}\newline
 {\ttfamily \#include "{}motors.\+h"{}}\newline
 {\ttfamily \#include "{}IR.\+h"{}}\newline
+{\ttfamily \#include "{}bluetooth.\+h"{}}\newline
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{main_8cpp_a4fc01d736fe50cf5b977f755b675f11d}\label{main_8cpp_a4fc01d736fe50cf5b977f755b675f11d} 
-void {\bfseries setup} ()
+\Hypertarget{main_8cpp_abea2f32b45b8c8bad26838cc7fdfd9a1}\label{main_8cpp_abea2f32b45b8c8bad26838cc7fdfd9a1} 
+Share$<$ uint16\+\_\+t $>$ {\bfseries movement} ("{}Tank 2D Movement"{})
 \item 
-\Hypertarget{main_8cpp_afe461d27b9c48d5921c00d521181f12f}\label{main_8cpp_afe461d27b9c48d5921c00d521181f12f} 
-void {\bfseries loop} ()
-\end{DoxyCompactItemize}
+\Hypertarget{main_8cpp_a0a34bfe80cc9f6a7ed681d2bc3382279}\label{main_8cpp_a0a34bfe80cc9f6a7ed681d2bc3382279} 
+Share$<$ bool $>$ {\bfseries fire} ("{}Tank Firing"{})
+\item 
+\Hypertarget{main_8cpp_a89522aa57ecac5521759701e1d4edd0d}\label{main_8cpp_a89522aa57ecac5521759701e1d4edd0d} 
+Share$<$ uint16\+\_\+t $>$ {\bfseries angle\+\_\+turret} ("{}Tank Turret Movement"{})
+\item 
+\Hypertarget{main_8cpp_ab149da7e0e931d6ff1b603b634785e97}\label{main_8cpp_ab149da7e0e931d6ff1b603b634785e97} 
+Share$<$ uint16\+\_\+t $>$ {\bfseries angle\+\_\+barrel} ("{}Tank Barrel Movement"{})
+\item 
+void \mbox{\hyperlink{main_8cpp_a4fc01d736fe50cf5b977f755b675f11d}{setup}} ()
+\begin{DoxyCompactList}\small\item\em Initializes all the GPIOS, variables and tasks. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_afe461d27b9c48d5921c00d521181f12f}{loop}} ()
+\begin{DoxyCompactList}\small\item\em Function that runs forever. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -29,4 +41,27 @@ Edgar Mora, Bryan Carrillo, Kerr Allan
 \begin{DoxyDate}{Date}
 December/10/2024 
 \end{DoxyDate}
-This file is the main 
+This file contains the main functions for the Tank Project. It contains the definition of shared variables used for bluetooth interaction with the tank. The setup and loop functions are also defined in here. 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{main_8cpp_afe461d27b9c48d5921c00d521181f12f}\index{main.cpp@{main.cpp}!loop@{loop}}
+\index{loop@{loop}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{loop()}{loop()}}
+{\footnotesize\ttfamily \label{main_8cpp_afe461d27b9c48d5921c00d521181f12f} 
+void loop (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Function that runs forever. 
+
+This function executes in a loop indefinitely. \Hypertarget{main_8cpp_a4fc01d736fe50cf5b977f755b675f11d}\index{main.cpp@{main.cpp}!setup@{setup}}
+\index{setup@{setup}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{setup()}{setup()}}
+{\footnotesize\ttfamily \label{main_8cpp_a4fc01d736fe50cf5b977f755b675f11d} 
+void setup (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Initializes all the GPIOS, variables and tasks. 
+
+This function sets up all the GPIOS used for the tank as inputs/outputs. It also initializes the shared task variables, and the different tasks implemented. 

@@ -1,27 +1,24 @@
 var indexSectionsWithContent =
 {
-  0: "bcfimopst",
-  1: "m",
-  2: "bims",
-  3: "t",
-  4: "t"
+  0: "bcfilmopstv",
+  1: "bim",
+  2: "lstv",
+  3: "t"
 };
 
 var indexSectionNames =
 {
   0: "all",
-  1: "classes",
-  2: "files",
-  3: "functions",
-  4: "pages"
+  1: "files",
+  2: "functions",
+  3: "pages"
 };
 
 var indexSectionLabels =
 {
   0: "All",
-  1: "Classes",
-  2: "Files",
-  3: "Functions",
-  4: "Pages"
+  1: "Files",
+  2: "Functions",
+  3: "Pages"
 };
 
