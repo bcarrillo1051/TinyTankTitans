@@ -27,18 +27,9 @@ Share<uint16_t> angle_barrel ("Tank Barrel Movement");  // Used for Barrel motio
  *           It also initializes the shared task variables, and the different tasks implemented.
  */
 void setup() {
-<<<<<<< HEAD
   
   setup_SPP_Bluetooth(); 
 
-=======
-  // Initializing shared variables
-  movement.put(0);
-  fire.put(false);
-  angle_turret.put(0);
-  angle_barrel.put(0);
-  // Initializing GPIO Pins as Inputs/Outputs
->>>>>>> 928323feb01655199b705b899070bd0da979842b
   pinMode(ELEVATION,OUTPUT);
   pinMode(AZIMUTH,OUTPUT);
   pinMode(IN1,OUTPUT);
@@ -54,14 +45,6 @@ void setup() {
   analogWrite(IN2,PWM_STOP);
   analogWrite(IN3,PWM_STOP);
   analogWrite(IN4,PWM_STOP);
-<<<<<<< HEAD
-
-  xTaskCreate (task_movement, "Tank 2D Motion", 2048, NULL, 7, NULL);
-  xTaskCreate (task_barrel, "Tank Barrel Motion", 2048, NULL, 6, NULL);
-  xTaskCreate (task_turret, "Tank Turret Motion", 2048, NULL, 5, NULL);
-  xTaskCreate (task_receiver, "Tank Receiver ", 2048, NULL, 8, NULL);
-  xTaskCreate (task_bluetooth, "Tank Bluetooth", 1024, NULL, 9, NULL);
-=======
   // Creating the different tasks associated with the project
   xTaskCreate (task_turret, "Tank Turret Motion", 2048, NULL, 1, NULL);
   xTaskCreate (task_barrel, "Tank Barrel Motion", 2048, NULL, 2, NULL);
@@ -69,7 +52,6 @@ void setup() {
   xTaskCreate (task_receiver, "Tank IR Receiver", 2048, NULL, 4, NULL);
   xTaskCreate (task_transmitter, "Tank IR Transmitter", 2048, NULL, 5, NULL); 
   xTaskCreate (task_bluetooth, "Bluetooth Communication", 2048, NULL, 6, NULL);
->>>>>>> 928323feb01655199b705b899070bd0da979842b
 }
 
 

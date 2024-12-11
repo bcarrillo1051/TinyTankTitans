@@ -23,24 +23,32 @@
 #error Serial Bluetooth not available or not enabled. It is only available for the ESP32 chip.
 #endif
 
-// Analog Stick bound defitions
+// Analog stick bound defitions
 #define LEFT_LOWER_BOUND_X 4
 #define LEFT_UPPER_BOUND_X 34
 #define RIGHT_LOWER_BOUND_X 74
 #define RIGHT_UPPER_BOUND_X 104
-#define DOWN_LOWER_BOUND_X 34
-#define DOWN_UPPER_BOUND_X 74
-#define UP_LOWER_BOUND_X 34
-#define UP_UPPER_BOUND_X 74
+#define UP_DOWN_LOWER_BOUND_X 34
+#define UP_DOWN_UPPER_BOUND_X 74
+// #define UP_LOWER_BOUND_X 34
+// #define UP_UPPER_BOUND_X 74
 
-#define LEFT_LOWER_BOUND_Y 34
-#define LEFT_UPPER_BOUND_Y 74
-#define RIGHT_LOWER_BOUND_Y 34
-#define RIGHT_UPPER_BOUND_Y 74
+#define LEFT_RIGHT_LOWER_BOUND_Y 34
+#define LEFT_RIGHT_UPPER_BOUND_Y 74
+// #define RIGHT_LOWER_BOUND_Y 34
+// #define RIGHT_UPPER_BOUND_Y 74
 #define DOWN_LOWER_BOUND_Y 4
 #define DOWN_UPPER_BOUND_Y 34
 #define UP_LOWER_BOUND_Y 74
 #define UP_UPPER_BOUND_Y 104
+
+// D-Pad Regions
+#define CENTER 0
+#define UP 1
+#define DOWN 2
+#define LEFT 3
+#define RIGHT 4
+#define DIAGONAL 5
 
 /*--------------------------FUNCTION DECLARATIONS--------------------------- */
 void setup_SPP_Bluetooth(); 

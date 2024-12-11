@@ -13,6 +13,7 @@
 #include "bluetooth.h"
 #include<iostream>
 #include<string.h>
+#include "main.h"
 
 // Global Variables
 BluetoothSerial SerialBT; // Create an instance of the BluetoothSerial class
@@ -26,6 +27,20 @@ void setup_SPP_Bluetooth(){
 }
 
 void task_bluetooth(void* p_param){
+
+  // D-Pad look up table based on x and y area that is detected
+  // region: 0 = center, 1 = up, 2 = down, 3 = left, 4 = right
+  int regionLookup[3][3] = {
+      {DIAGONAL, UP, DIAGONAL},
+      {LEFT, CENTER, RIGHT},
+      {DIAGONAL, DOWN, DIAGONAL}
+  };
+
+  // x_area: 1 = center third, 2 = left third, 3 = right third
+  uint16_t x_area = 1; // Default for center of ball
+  // y_area: 1 = center third, 2 = down third, 3 = up third
+  uint16_t y_area = 1; // Default for center of ball
+
   while(true){
 
     if (SerialBT.available()){ // Check if there are bytes of received data
@@ -58,55 +73,65 @@ void task_bluetooth(void* p_param){
         Serial.print("Tank left/right movement (x) data: ");
         Serial.println(dummy);
 
-        if (UP_LOWER_BOUND_X < xData < UP_UPPER_BOUND_X){ // If x is in up button area
-          movement.put(1);
-        }
-        else if (DOWN_LOWER_BOUND_X < xData < DOWN_UPPER_BOUND_X){ // If x is in down button area
-          movement.put(2);
-        }
-        else if (LEFT_LOWER_BOUND_X < xData < LEFT_UPPER_BOUND_X){ // If x is in left button area
-          movement.put(3);
-        }
-        else if (RIGHT_LOWER_BOUND_X < xData < RIGHT_UPPER_BOUND_X){ // If x is in right button area
-          movement.put(4);
-        }
-        else{ // If x is at the center of the ball x ==5 4
-          movement.put(0);
-        }
         // Serial.print("Number of bytes in buffer (x): ");  
         // Serial.println(SerialBT.available()); 
-        // Serial.println();    
+        // Serial.println();  
+
+        if (LEFT_LOWER_BOUND_X < xData < LEFT_UPPER_BOUND_X){ // If x is in left button area
+          x_area = 0;
+        }
+        else if (UP_DOWN_LOWER_BOUND_X < xData < UP_DOWN_UPPER_BOUND_X){ // If x is in up or bottom button area
+          x_area = 1;
+        }
+        else if (RIGHT_LOWER_BOUND_X < xData < RIGHT_UPPER_BOUND_X){ // If x is in right button area
+          x_area = 2;
+        }  
+  
+
       } 
 
       // --- MOVEMENT Y-AXIS CHECK (LEFT ANALOG STICK) ---
-      if (c == 'y'){ // Movmement y-axis analog stick data
+      if (c == 'y'){ // Movemement y-axis analog stick data
         char yData = SerialBT.read();
         int dummy = (int)yData;
         Serial.print("Tank forward/back movement (y) data: ");
-        Serial.println(dummy);
+        Serial.println(dummy); 
+
         // Serial.print("Number of bytes in buffer (y): ");  
         // Serial.println(SerialBT.available()); 
-        // Serial.println();   
+        // Serial.println();  
 
         if (UP_LOWER_BOUND_Y < yData < UP_UPPER_BOUND_Y){ // If y is in up button area
-          movement.put(1);
+          y_area = 0;
+        }
+        else if (LEFT_RIGHT_LOWER_BOUND_Y < yData < LEFT_RIGHT_UPPER_BOUND_Y){ // If y is in left or right button area
+          y_area = 1;
         }
         else if (DOWN_LOWER_BOUND_Y < yData < DOWN_UPPER_BOUND_Y){ // If y is in down button area
+          y_area = 2;
+        }
+
+        // Compute D-Pad region
+        uint16_t region = regionLookup[y_area][x_area];
+
+        if (region == UP){ // If x and y is center and up respectively
+          movement.put(1);
+        }
+        else if (region == DOWN){ // If x and y is center and down respectively
           movement.put(2);
         }
-        else if (LEFT_LOWER_BOUND_Y < yData < LEFT_UPPER_BOUND_Y){ // If y is in left button area
+        else if (region == LEFT){ // If x and y is left and center respectively
           movement.put(3);
         }
-        else if (RIGHT_LOWER_BOUND_Y < yData < RIGHT_UPPER_BOUND_Y){ // If y is in right button area
+        else if (region == RIGHT){ // If x and y is right and center respectively
           movement.put(4);
         }
-        else{ // If x is at the center of the ball x ==5 4
+        else{ // If x and y is center and center respectively
           movement.put(0);
         }
-
       }
 
-      // --- MOVEMENT X-AXIS CHECK (RIGHT ANALOG STICK) ---
+      // --- AZIMUTHAL X-AXIS CHECK (RIGHT ANALOG STICK) ---
       if (c == 'a'){
         char xData = SerialBT.read();
         int dummy = (int)xData;
@@ -116,22 +141,15 @@ void task_bluetooth(void* p_param){
         // Serial.println(SerialBT.available()); 
         // Serial.println();
 
-        if (UP_LOWER_BOUND_X < xData < UP_UPPER_BOUND_X){ // If x is in up button area
-          movement.put(1);
+        if (LEFT_LOWER_BOUND_X < xData < LEFT_UPPER_BOUND_X){ // If x is in left button area
+          x_area = 0;
         }
-        else if (DOWN_LOWER_BOUND_X < xData < DOWN_UPPER_BOUND_X){ // If x is in down button area
-          movement.put(2);
-        }
-        else if (LEFT_LOWER_BOUND_X < xData < LEFT_UPPER_BOUND_X){ // If x is in left button area
-          movement.put(3);
+        else if (UP_DOWN_LOWER_BOUND_X < xData < UP_DOWN_UPPER_BOUND_X){ // If x is in up or bottom button area
+          x_area = 1;
         }
         else if (RIGHT_LOWER_BOUND_X < xData < RIGHT_UPPER_BOUND_X){ // If x is in right button area
-          movement.put(4);
-        }
-        else{ // If x is at the center of the ball x == 54
-          movement.put(0);
-        }
-
+          x_area = 2;
+        }  
       } 
 
       // --- MOVEMENT Y-AXIS CHECK (RIGHT ANALOG STICK) ---
@@ -145,19 +163,33 @@ void task_bluetooth(void* p_param){
         // Serial.println();  
 
         if (UP_LOWER_BOUND_Y < yData < UP_UPPER_BOUND_Y){ // If y is in up button area
-          movement.put(1);
+          y_area = 0;
+        }
+        else if (LEFT_RIGHT_LOWER_BOUND_Y < yData < LEFT_RIGHT_UPPER_BOUND_Y){ // If y is in left or right button area
+          y_area = 1;
         }
         else if (DOWN_LOWER_BOUND_Y < yData < DOWN_UPPER_BOUND_Y){ // If y is in down button area
-          movement.put(2);
+          y_area = 2;
         }
-        else if (LEFT_LOWER_BOUND_Y < yData < LEFT_UPPER_BOUND_Y){ // If y is in left button area
-          movement.put(3);
+
+        // Compute D-Pad region
+        uint16_t region = regionLookup[y_area][x_area];
+
+        if (region == UP){ // If x and y is center and up respectively
+          angle_barrel.put(1);
         }
-        else if (RIGHT_LOWER_BOUND_Y < yData < RIGHT_UPPER_BOUND_Y){ // If y is in right button area
-          movement.put(4);
+        else if (region == DOWN){ // If x and y is center and down respectively
+          angle_barrel.put(2);
         }
-        else{ // If x is at the center of the ball x == 54
-          movement.put(0);
+        else if (region == RIGHT){ // If x and y is right and center respectively
+          angle_turret.put(1);
+        }
+        else if (region == LEFT){ // If x and y is left and center respectively
+          angle_turret.put(2);
+        }
+        else{ // If x and y is center and center respectively
+          angle_barrel.put(0);
+          angle_turret.put(0);
         }
 
       }
